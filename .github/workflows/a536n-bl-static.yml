@@ -21,6 +21,7 @@ on:
       - 'tools/a536n_usb_global_xref_scan.py'
       - 'tools/a536n_usb_pointer_store_scan.py'
       - 'tools/a536n_usb_pointer_store_provenance_scan.py'
+      - 'tools/a536n_usb_bounds_init_callsite_scan.py'
       - '.github/workflows/a536n-bl-static.yml'
 
 permissions:
@@ -74,6 +75,9 @@ jobs:
       - name: Trace USB pointer store register provenance (read-only)
         run: /usr/bin/python3 tools/a536n_usb_pointer_store_provenance_scan.py
 
+      - name: Trace USB bounds initializer callsite (read-only)
+        run: /usr/bin/python3 tools/a536n_usb_bounds_init_callsite_scan.py
+
       - name: Upload reports and extracted payloads
         uses: actions/upload-artifact@v4
         with:
@@ -90,6 +94,7 @@ jobs:
             A536N_USB_GLOBAL_XREF_REPORT.txt
             A536N_USB_POINTER_STORE_REPORT.txt
             A536N_USB_POINTER_STORE_PROVENANCE_REPORT.txt
+            A536N_USB_BOUNDS_INIT_CALLSITE_REPORT.txt
             analysis_payload/**
           if-no-files-found: error
           retention-days: 7
@@ -98,7 +103,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add A536N_BL_STATIC_REPORT.txt A536N_DEEP_STATIC_REPORT.txt A536N_SBOOT_XREF_REPORT.txt A536N_S5E8825_SIGNATURE_REPORT.txt A536N_USB_JPEG_FLOW_REPORT.txt A536N_USB_SIZE_GUARD_REPORT.txt A536N_USB_BUFFER_BOUNDS_REPORT.txt A536N_USB_GLOBAL_STATE_REPORT.txt A536N_USB_GLOBAL_XREF_REPORT.txt A536N_USB_POINTER_STORE_REPORT.txt A536N_USB_POINTER_STORE_PROVENANCE_REPORT.txt
+          git add A536N_BL_STATIC_REPORT.txt A536N_DEEP_STATIC_REPORT.txt A536N_SBOOT_XREF_REPORT.txt A536N_S5E8825_SIGNATURE_REPORT.txt A536N_USB_JPEG_FLOW_REPORT.txt A536N_USB_SIZE_GUARD_REPORT.txt A536N_USB_BUFFER_BOUNDS_REPORT.txt A536N_USB_GLOBAL_STATE_REPORT.txt A536N_USB_GLOBAL_XREF_REPORT.txt A536N_USB_POINTER_STORE_REPORT.txt A536N_USB_POINTER_STORE_PROVENANCE_REPORT.txt A536N_USB_BOUNDS_INIT_CALLSITE_REPORT.txt
           if ! git diff --cached --quiet; then
             git commit -m "Update SM-A536N BL static analysis reports"
             git push origin HEAD:main
