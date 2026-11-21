@@ -1,1 +1,35 @@
-SM-A536N S-BOOT USB POINTER STORE PROVENANCE SCAN (READ-ONLY)\nImage size: 8388608 bytes\nMethod: 4-byte aligned AArch64 decode; track ADRP and simple MOV/ADD aliases across linear instruction stream.\nTargets: 0x5641b8, 0x5641c0, 0x5641c8.\nCaution: S-Boot mixes code/data; linear decoding and register provenance can produce false positives or miss control-flow-dependent aliases.\n\nSTORE @ 0x000f8e34: stp    x2, xzr, [x9] ; +0x1b8 end_or_limit_A\n  0x000f8e24: ldr      d0, [x8, #0x258]\n  0x000f8e28: ldr      x8, [x10, #0x728]\n  0x000f8e2c: adrp     x9, #0x564000\n  0x000f8e30: add      x9, x9, #0x1b8\n  0x000f8e34: stp      x2, xzr, [x9]\n  0x000f8e38: udiv     x10, x2, x8\n  0x000f8e3c: msub     x11, x10, x8, x2\n\nSTORE @ 0x000f8e64: str    x10, [x9, #0x10] ; +0x1c8 receive_end_pointer\n  0x000f8e54: csel     x8, x8, x2, lo\n  0x000f8e58: lsr      x11, x8, #0x18\n  0x000f8e5c: stp      x0, x1, [x9, #0x28]\n  0x000f8e60: str      d0, [x9, #0x18]\n  0x000f8e64: str      x10, [x9, #0x10]\n  0x000f8e68: cbnz     x11, #0xf8e7c\n  0x000f8e6c: adrp     x9, #0x564000\n\nSTORE @ 0x000f8ff8: str    x8, [x10, #0x1c0] ; +0x1c0 receive_current_pointer\n  0x000f8fe8: ldr      w9, [x8, #0x1f8]\n  0x000f8fec: mov      w19, w20\n  0x000f8ff0: add      x8, x11, x19\n  0x000f8ff4: cmp      w9, #0x65\n  0x000f8ff8: str      x8, [x10, #0x1c0]\n  0x000f8ffc: b.eq     #0xf92c4\n  0x000f9000: cmp      w9, #0x66\n\nCandidate stores: 3\nThis is an index for manual validation, not proof of pointer initialization, runtime reachability, memory safety, or vulnerability.\n
+SM-A536N S-BOOT USB POINTER STORE PROVENANCE SCAN (READ-ONLY)
+Image size: 8388608 bytes
+Method: 4-byte aligned AArch64 decode; track ADRP and simple MOV/ADD aliases across linear instruction stream.
+Targets: 0x5641b8, 0x5641c0, 0x5641c8.
+Caution: S-Boot mixes code/data; linear decoding and register provenance can produce false positives or miss control-flow-dependent aliases.
+
+STORE @ 0x000f8e34: stp    x2, xzr, [x9] ; +0x1b8 end_or_limit_A
+  0x000f8e24: ldr      d0, [x8, #0x258]
+  0x000f8e28: ldr      x8, [x10, #0x728]
+  0x000f8e2c: adrp     x9, #0x564000
+  0x000f8e30: add      x9, x9, #0x1b8
+  0x000f8e34: stp      x2, xzr, [x9]
+  0x000f8e38: udiv     x10, x2, x8
+  0x000f8e3c: msub     x11, x10, x8, x2
+
+STORE @ 0x000f8e64: str    x10, [x9, #0x10] ; +0x1c8 receive_end_pointer
+  0x000f8e54: csel     x8, x8, x2, lo
+  0x000f8e58: lsr      x11, x8, #0x18
+  0x000f8e5c: stp      x0, x1, [x9, #0x28]
+  0x000f8e60: str      d0, [x9, #0x18]
+  0x000f8e64: str      x10, [x9, #0x10]
+  0x000f8e68: cbnz     x11, #0xf8e7c
+  0x000f8e6c: adrp     x9, #0x564000
+
+STORE @ 0x000f8ff8: str    x8, [x10, #0x1c0] ; +0x1c0 receive_current_pointer
+  0x000f8fe8: ldr      w9, [x8, #0x1f8]
+  0x000f8fec: mov      w19, w20
+  0x000f8ff0: add      x8, x11, x19
+  0x000f8ff4: cmp      w9, #0x65
+  0x000f8ff8: str      x8, [x10, #0x1c0]
+  0x000f8ffc: b.eq     #0xf92c4
+  0x000f9000: cmp      w9, #0x66
+
+Candidate stores: 3
+This is an index for manual validation, not proof of pointer initialization, runtime reachability, memory safety, or vulnerability.
