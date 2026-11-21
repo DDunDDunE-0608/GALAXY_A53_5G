@@ -93,6 +93,6 @@ def main():
  "- No conclusion about buffer overflow, copy bounds, or exploitability can be drawn from string references alone.",
  "- The callback immediate reported by the companion signature scan is an observed argument constant, not proven to be a copy length."
  ]
- OUT.write_text("\\n".join(lines)+"\\n",encoding="utf-8")
- print("\\n".join(lines[:100]))
+ OUT.write_text("\n".join(lines)+"\n",encoding="utf-8")
+ print("\n".join(lines[:100]))
 if __name__=="__main__": main()
