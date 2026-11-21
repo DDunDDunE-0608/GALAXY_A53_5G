@@ -104,11 +104,11 @@ def send_info_signature(data, base, bss):
     counts=collections.Counter()
     for use in uses:
         found=set()
-        for off in range(max(0,use-0x100),use,4):
+        for off in range(max(0,use-0x20),min(len(data)-0x24,use+0x20),4):
             ins=u32(data,off)
             if ins&0x9f000000 != 0x90000000: continue
             page,reg=adrp(ins,base+off)
-            for pos in range(off+4,min(use,off+0x24),4):
+            for pos in range(off+4,min(use+0x30,off+0x24,len(data)-3),4):
                 load=u32(data,pos)
                 if (load&0xffc00000==0xf9400000 and ((load>>5)&31)==reg and (load&31)==0):
                     addr=page+((load>>10)&0xfff)*8
