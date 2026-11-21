@@ -24,6 +24,9 @@ jobs:
       - name: Run read-only inventory
         run: python3 tools/a536n_bl_static_inventory.py
 
+      - name: Extract S-Boot and UP_PARAM for offline static inspection
+        run: python3 tools/a536n_bl_extract_payloads.py
+
       - name: Upload report artifact
         uses: actions/upload-artifact@v4
         with:
@@ -31,6 +34,16 @@ jobs:
           path: A536N_BL_STATIC_REPORT.txt
           if-no-files-found: error
           retention-days: 14
+
+      - name: Upload extracted firmware payloads (temporary artifact)
+        uses: actions/upload-artifact@v4
+        with:
+          name: A536N-BL-deep-analysis-payloads
+          path: |
+            A536N_DEEP_STATIC_REPORT.txt
+            analysis_payload/**
+          if-no-files-found: error
+          retention-days: 7
 
       - name: Commit report to analysis branch
         run: |
