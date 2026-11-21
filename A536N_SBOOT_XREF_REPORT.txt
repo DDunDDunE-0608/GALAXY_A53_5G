@@ -1,11 +1,93 @@
 SM-A536N S-BOOT STATIC XREF SCAN
-Read-only disassembly; no device interaction or firmware modification.
-Binary size: 8388608 bytes
-Disassembled AArch64 instructions: 1
-Address model: raw file offsets used as virtual addresses for PC-relative reference matching.
-This assumes a page-aligned load base; matches are candidate references, not proof of runtime reachability.
+Read-only AArch64 instruction-pattern scan; no device interaction or firmware modification.
+Binary size: 8388608 bytes; aligned 32-bit words scanned: 2097152
+Address model: raw file offsets treated as virtual addresses for PC-relative matching.
+Assumption: image load base is page-aligned; matches are candidate references, not proof of runtime reachability.
 Target strings found: 20
-Candidate references: 0
+Candidate references: 5
 
-No direct ADR or ADRP+ADD references matched the selected strings.
-This can occur if references are indirect, data is relocated, or the raw image uses a different layout.
+TARGET 0x002652c3 [ADRP+ADD (+2 insns)]: Secure boot is enabled (secure chip)
+   0x0010cde0: b0000b00  adrp x0, 0x26d000
+   0x0010cde4: 912ca800  add x0, x0, #0xb2a
+   0x0010cde8: 14000008  b 0x10ce08
+   0x0010cdec: 9402defd  bl 0x1c49e0
+   0x0010cdf0: 90000ca8  adrp x8, 0x2a0000
+>> 0x0010cdf4: b0000ac9  adrp x9, 0x265000
+   0x0010cdf8: 9109dd08  add x8, x8, #0x277
+   0x0010cdfc: 910b0d29  add x9, x9, #0x2c3
+   0x0010ce00: 7100081f  .word 0x7100081f
+   0x0010ce04: 9a880120  .word 0x9a880120
+   0x0010ce08: 9401626c  bl 0x1657b8
+   0x0010ce0c: 94025ff9  bl 0x1a4df0
+   0x0010ce10: 34000080  .word 0x34000080
+   0x0010ce14: 7100167f  .word 0x7100167f
+   0x0010ce18: 540000c0  .word 0x540000c0
+
+TARGET 0x00270414 [ADRP+ADD (+2 insns)]: Secure boot: enabled (test key)
+   0x0016df84: 94015a97  bl 0x1c49e0
+   0x0016df88: 7100041f  .word 0x7100041f
+   0x0016df8c: 540001a1  .word 0x540001a1
+   0x0016df90: 52800060  .word 0x52800060
+   0x0016df94: 97ffa508  bl 0x1573b4
+>> 0x0016df98: f0000804  adrp x4, 0x270000
+   0x0016df9c: 2a0003e1  .word 0x2a0003e1
+   0x0016dfa0: 91105084  add x4, x4, #0x414
+   0x0016dfa4: 14000013  b 0x16dff0
+   0x0016dfa8: 52800060  .word 0x52800060
+   0x0016dfac: 97ffa502  bl 0x1573b4
+   0x0016dfb0: 900007a4  adrp x4, 0x261000
+   0x0016dfb4: 2a0003e1  .word 0x2a0003e1
+   0x0016dfb8: 91368084  add x4, x4, #0xda0
+   0x0016dfbc: 1400000d  b 0x16dff0
+
+TARGET 0x00261da0 [ADRP+ADD (+2 insns)]: Secure boot: disabled
+   0x0016df9c: 2a0003e1  .word 0x2a0003e1
+   0x0016dfa0: 91105084  add x4, x4, #0x414
+   0x0016dfa4: 14000013  b 0x16dff0
+   0x0016dfa8: 52800060  .word 0x52800060
+   0x0016dfac: 97ffa502  bl 0x1573b4
+>> 0x0016dfb0: 900007a4  adrp x4, 0x261000
+   0x0016dfb4: 2a0003e1  .word 0x2a0003e1
+   0x0016dfb8: 91368084  add x4, x4, #0xda0
+   0x0016dfbc: 1400000d  b 0x16dff0
+   0x0016dfc0: 94015a88  bl 0x1c49e0
+   0x0016dfc4: 2a0003f3  .word 0x2a0003f3
+   0x0016dfc8: 52800060  .word 0x52800060
+   0x0016dfcc: 97ffa4fa  bl 0x1573b4
+   0x0016dfd0: 71000a7f  .word 0x71000a7f
+   0x0016dfd4: 2a0003e1  .word 0x2a0003e1
+
+TARGET 0x0028066f [ADRP+ADD (+1 insns)]: Secure boot: enabled (secure chip)
+   0x0016dfc8: 52800060  .word 0x52800060
+   0x0016dfcc: 97ffa4fa  bl 0x1573b4
+   0x0016dfd0: 71000a7f  .word 0x71000a7f
+   0x0016dfd4: 2a0003e1  .word 0x2a0003e1
+   0x0016dfd8: 54000081  .word 0x54000081
+>> 0x0016dfdc: f0000884  adrp x4, 0x280000
+   0x0016dfe0: 9119bc84  add x4, x4, #0x66f
+   0x0016dfe4: 14000003  b 0x16dff0
+   0x0016dfe8: b00007e4  adrp x4, 0x26a000
+   0x0016dfec: 91060084  add x4, x4, #0x180
+   0x0016dff0: 52800280  .word 0x52800280
+   0x0016dff4: 12bfe002  .word 0x12bfe002
+   0x0016dff8: 2a1f03e3  .word 0x2a1f03e3
+   0x0016dffc: 97ffa67f  bl 0x1579f8
+   0x0016e000: 97fe83b3  bl 0x10eecc
+
+TARGET 0x00279a42 [ADRP+ADD (+1 insns)]: Error Exit at JPEG!!
+   0x00238c98: f9400908  .word 0xf9400908
+   0x00238c9c: d63f0100  .word 0xd63f0100
+   0x00238ca0: aa1303e0  .word 0xaa1303e0
+   0x00238ca4: 97ffaf6d  bl 0x224a58
+   0x00238ca8: f9400bf3  .word 0xf9400bf3
+>> 0x00238cac: b0000200  adrp x0, 0x279000
+   0x00238cb0: 91290800  add x0, x0, #0xa42
+   0x00238cb4: a8c27bfd  .word 0xa8c27bfd
+   0x00238cb8: 17fcb2c0  b 0x1657b8
+   0x00238cbc: a9be7bfd  .word 0xa9be7bfd
+   0x00238cc0: f9000bf3  .word 0xf9000bf3
+   0x00238cc4: 910003fd  add x29, sp, #0x0
+   0x00238cc8: f9400013  .word 0xf9400013
+   0x00238ccc: 37f80101  .word 0x37f80101
+   0x00238cd0: b9407e68  .word 0xb9407e68
+
