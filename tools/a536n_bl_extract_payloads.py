@@ -42,7 +42,7 @@ def main():
             records = list(jpeg_records(data))
             report.append(f"JPEG SOI/EOI pairs: {len(records)}")
             for i, (start, end, blob) in enumerate(records, 1):
-                names = re.findall(rb"[A-Za-z0-9_]+\.jpg", data[max(0,start-80):start], re.I)
+                names = re.findall(rb"[A-Za-z0-9_]+\.jpg", data[max(0,start-0x400):start], re.I)
                 name = names[-1].decode("ascii", "replace") if names else f"image_{i:02d}.jpg"
                 target = OUT / f"{i:02d}_{re.sub(r'[^A-Za-z0-9_.-]', '_', name)}"
                 target.write_bytes(blob)
