@@ -113,6 +113,15 @@ def send_info_signature(data, base, bss):
                 if (load&0xffc00000==0xf9400000 and ((load>>5)&31)==reg and (load&31)==0):
                     addr=page+((load>>10)&0xfff)*8
                     if bss[0]<=addr<bss[1]: found.add(addr)
+                    break
+                # Reject stale ADRP bases if the destination register was overwritten first.
+                if ((load&0xffc00000==0xf9400000 or load&0xffc00000==0xb9400000)
+                        and (load&31)==reg):
+                    break
+                if (load&0x9f000000 in (0x10000000,0x90000000) and (load&31)==reg):
+                    break
+                if (load&0x7f000000)==0x11000000 and (load&31)==reg:
+                    break
         counts.update(found)
     reply_candidates=[addr for addr,count in counts.items() if count==len(uses)] if uses else []
     return {
