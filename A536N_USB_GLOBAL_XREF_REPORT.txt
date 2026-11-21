@@ -1,0 +1,74 @@
+SM-A536N S-BOOT USB GLOBAL-STATE CROSS-REFERENCE (READ-ONLY)
+Image size: 8388608 bytes
+Method: decode each 4-byte-aligned word independently, then inspect following aligned instructions.
+Target ADRP page: 0x564000
+Caution: raw data can decode as instructions; every hit requires contextual validation.
+
+ADRP @ 0x000f8e6c: adrp x9, #0x564000
+  0x000f8e74: str      x1, [x9, #0x200] ; +0x200 parser_write_pointer
+
+ADRP @ 0x000f8ec0: adrp x24, #0x564000
+  0x000f8ec8: ldr      w8, [x24, #0x208] ; +0x208 state_flag_A
+
+ADRP @ 0x000f8ec4: adrp x21, #0x564000
+  0x000f8ecc: ldr      w9, [x21, #0x20c] ; +0x20c state_flag_B
+
+ADRP @ 0x000f8f18: adrp x20, #0x564000
+  0x000f8f1c: ldr      x0, [x20, #0x238] ; +0x238 allocated_buffer_pointer
+  0x000f8f2c: str      x0, [x20, #0x238] ; +0x238 allocated_buffer_pointer
+  0x000f8f40: ldr      x8, [x20, #0x238] ; +0x238 allocated_buffer_pointer
+
+ADRP @ 0x000f8fdc: adrp x10, #0x564000
+  0x000f8fe4: ldr      x11, [x10, #0x1c0] ; +0x1c0 receive_current_pointer
+  0x000f8ff8: str      x8, [x10, #0x1c0] ; +0x1c0 receive_current_pointer
+
+ADRP @ 0x000f9010: adrp x9, #0x564000
+  0x000f9014: ldr      x9, [x9, #0x1c8] ; +0x1c8 candidate_receive_end_pointer
+
+ADRP @ 0x000f91dc: adrp x8, #0x564000
+  0x000f91e0: str      xzr, [x8, #0x200] ; +0x200 parser_write_pointer
+
+ADRP @ 0x000f9210: adrp x9, #0x564000
+  0x000f9214: ldr      x9, [x9, #0x1b8] ; +0x1b8 candidate_end_or_limit_A
+
+ADRP @ 0x000f9220: adrp x9, #0x564000
+  0x000f9224: ldr      x9, [x9, #0x1c8] ; +0x1c8 candidate_receive_end_pointer
+
+ADRP @ 0x000f9294: adrp x8, #0x564000
+  0x000f9298: ldr      x11, [x8, #0x200] ; +0x200 parser_write_pointer
+  0x000f92ac: str      x0, [x8, #0x200] ; +0x200 parser_write_pointer
+  0x000f92b4: str      x0, [x8, #0x200] ; +0x200 parser_write_pointer
+
+ADRP @ 0x000f9324: adrp x8, #0x564000
+  0x000f9328: str      xzr, [x8, #0x200] ; +0x200 parser_write_pointer
+
+ADRP @ 0x000f9640: adrp x19, #0x564000
+  0x000f9644: ldr      x0, [x19, #0x238] ; +0x238 allocated_buffer_pointer
+  0x000f9654: str      x0, [x19, #0x238] ; +0x238 allocated_buffer_pointer
+  0x000f9668: ldr      x19, [x19, #0x238] ; +0x238 allocated_buffer_pointer
+
+ADRP @ 0x000f9f40: adrp x21, #0x564000
+  0x000f9f44: ldr      x0, [x21, #0x238] ; +0x238 allocated_buffer_pointer
+  0x000f9f54: str      x0, [x21, #0x238] ; +0x238 allocated_buffer_pointer
+  0x000f9f68: ldr      x21, [x21, #0x238] ; +0x238 allocated_buffer_pointer
+
+ADRP @ 0x000fa034: adrp x20, #0x564000
+  0x000fa038: ldr      x0, [x20, #0x238] ; +0x238 allocated_buffer_pointer
+  0x000fa048: str      x0, [x20, #0x238] ; +0x238 allocated_buffer_pointer
+  0x000fa05c: ldr      x20, [x20, #0x238] ; +0x238 allocated_buffer_pointer
+
+ADRP @ 0x000fa184: adrp x21, #0x564000
+  0x000fa188: ldr      x0, [x21, #0x238] ; +0x238 allocated_buffer_pointer
+  0x000fa198: str      x0, [x21, #0x238] ; +0x238 allocated_buffer_pointer
+  0x000fa1ac: ldr      x21, [x21, #0x238] ; +0x238 allocated_buffer_pointer
+
+ADRP @ 0x000fa674: adrp x8, #0x564000
+  0x000fa678: ldr      x0, [x8, #0x200] ; +0x200 parser_write_pointer
+
+ADRP @ 0x000fa9b8: adrp x20, #0x564000
+  0x000fa9bc: ldr      x0, [x20, #0x238] ; +0x238 allocated_buffer_pointer
+  0x000fa9cc: str      x0, [x20, #0x238] ; +0x238 allocated_buffer_pointer
+  0x000fa9e0: ldr      x20, [x20, #0x238] ; +0x238 allocated_buffer_pointer
+
+Matched ADRP windows: 17
+This is a candidate xref index only, not proof of pointer provenance, runtime reachability, or vulnerability.
