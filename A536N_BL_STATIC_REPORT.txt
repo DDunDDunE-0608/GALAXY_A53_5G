@@ -1,0 +1,385 @@
+SM-A536N BL FIRMWARE — READ-ONLY STATIC INVENTORY
+Firmware label: A536NKSUIGZI2
+Source directory: BL_A536NKSUIGZI2_A536NKSUIGZI2_MQB114816381_REV00_user_low_ship_MULTI_CERT
+Scope: metadata/strings only; no exploit execution or device modification.
+
+==============================================================================
+FILE: fld.bin.lz4
+Compressed size: 26620 bytes
+Compressed SHA-256: 207920477671f512adc41f2f37c65cebb492df8706a389e61974484c5e288891
+Decompression: OK
+Decompressed size: 4194304 bytes
+Decompressed SHA-256: c1ebf5e25bf7fbe456c9c9fe8f2907a759e2487923bfefd80a55b96e253c98cc
+First 16 bytes: 18 00 00 00 b2 19 bc 15 00 00 00 00 00 00 00 00
+Selected printable-string matches: 4
+  0x00003000: SM-A536N
+  0x00003040: A536NKSUIGZI2
+  0x00003070: SM-A536N_KOR_KX_EKEY3
+  0x00004080: avbtool 1.2.0
+
+==============================================================================
+FILE: harx.bin.lz4
+Compressed size: 69288 bytes
+Compressed SHA-256: d14d5ae67c6e0a18fc298d69f3f34442b77b55cb2afe537579a1d6029db29d03
+Decompression: OK
+Decompressed size: 3145728 bytes
+Decompressed SHA-256: 41caf59c728e4317b4d8b5570b386ccc58eb27f1ffd5b610407698f51af6a71c
+First 16 bytes: 08 00 00 14 1f 20 03 d5 1f 20 03 d5 1f 20 03 d5
+Selected printable-string matches: 67
+  0x00000010: Exynos_H-Arx
+  0x0000e001: [H-Arx Version] This image's H-Arx version ID [%s]
+  0x0000e4c8: exynos_pwr_domain_suspend_finish
+  0x0000e518: exynos_check_plugin_memory
+  0x0000e538: exynos_check_dram_address
+  0x0000e5aa: SOC_INFO_VERSION in EL3(%llx) is different with %x
+  0x0000e7b0: exynos_check_harx_memory
+  0x0000ed60: %s: exynos_get_el2_log called
+  0x0000edc0: exynos_hvc_svc
+  0x0000edd0: exynos_set_el2_log
+  0x0000f1a0: exynos_plugin_api_register_sec_os_handler
+  0x0000f1d0: exynos_plugin_api_regster_pm_handler
+  0x0000f1f8: exynos_plugin_api_register
+  0x0000f480: exynos_plugin_api_stage1_entire_dram_map
+  0x0000f4b0: exynos_plugin_api_register_sync_exception_handler
+  0x0000f63f: exynos_plugin_oem_hvc
+  0x0000f658: exynos_plugin_api_register_oem_hvc_handler
+  0x0000f688: exynos_plugin_oem_hvc_handler
+  0x0000f6c0: exynos_get_plugin_by_handle
+  0x0000f6f8: exynos_plugin_secure_os_handler
+  0x0000f718: exynos_plugin_resume
+  0x0000fa58: %s: Plug-in Secure Boot State [%d]
+  0x0000fe38: exynos_plugin_init
+  0x0000fe68: exynos_get_plugin
+  0x00010470: exynos_set_ttbase_info
+  0x00010518: exynos_check_s2mpu_vgen_address
+  0x00010538: exynos_s2mpu_blacklist_add_list
+  0x00010558: exynos_s2mpu_blacklist_remove_list
+  0x00010736: %s: Do not match exynos_blacklist corresponing to subsys_idx(%d)
+  0x00010779: %s: Overlap exynos_blacklist[%d]
+  0x0001079c: %s: - exynos_blacklist[%d].start_addr[%llx]/req_start_addr[%llx]
+  0x000107df: %s: - exynos_blacklist[%d].end_addr[%llx]/req_end_addr[%llx]
+  0x0001081e: %s: - exynos_blacklist[%d].owner<%d>/req_subsys<%d>
+  0x00010870: exynos_s2mpu_blacklist_check_list
+  0x00010898: exynos_s2mpu_blacklist_print_list
+  0x000108c0: exynos_s2mpu_blacklist_init
+  0x000108e0: exynos_s2mpu_get_fault_info
+  0x00010a18: exynos_s2mpu_set_fault_info_buf
+  0x00010bb8: exynos_s2mpu_set_kernel_text_info
+  0x00010be0: exynos_s2mpu_protect_kernel_text
+  0x00010c08: exynos_s2mpu_pm_get_pd
+  0x00010c20: exynos_s2mpu_pm_init
+  0x00010d28: exynos_s2mpu_runtime_pm
+  0x00010d40: exynos_s2mpu_suspend_to_ram
+  0x00010d80: exynos_vgen_configure
+  0x00010df8: exynos_s2mpu_get_fault_status
+  0x00011670: exynos_s2mpu_range_invalidation
+  0x00011690: exynos_s2mpu_set_l2table_addr
+  0x000116c8: exynos_s2mpu_initial_restore
+  0x00011718: exynos_s2mpu_backup_l2table_addr
+  0x000117e8: exynos_stage2_device_init
+  0x00011a60: exynos_subsystem_verify_fw
+  0x00011a80: exynos_subsystem_allow_fw_stage2_ap
+  0x00011aa8: exynos_subsystem_protect_vss
+  0x00011ac8: exynos_subsystem_protect_memory
+  0x00011b10: exynos_subsystem_protect_all
+  0x00011d62: %s: Several SMC_CM_SECURE_BOOT attempts, retry_cnt = %d
+  0x000124a9: %s: Release %s sub-system[%d] FW
+  0x00012558: exynos_subsystem_release_fw_stage2_ap
+  0x000125a0: exynos_s2mpu_get_subsystem
+  0x000125c0: exynos_s2mpu_get_s2mpu
+  0x000125d8: exynos_s2mpu_get_vgen
+  0x000125f0: exynos_s2mpu_get_stream_device
+  0x00012c72: gcc_ver : real-aarch64-linux-android-gcc (GCC) 4.9.x 20150123 (prerelease)
+  0x00200020: A536NKSUIGZI2
+  0x00200050: SM-A536N_KOR_KX_EKEY3
+  0x00201080: avbtool 1.2.0
+
+==============================================================================
+FILE: keystorage.bin.lz4
+Compressed size: 5369 bytes
+Compressed SHA-256: 03b75e0c5b076767811a24191bc13c6ce487f9878251850768e2f18e4c1b7dd6
+Decompression: OK
+Decompressed size: 524288 bytes
+Decompressed SHA-256: 21cf42435dde0caf45be45df3cd05c6c0bbecf732543e61c99fe365b3ae322ea
+First 16 bytes: 53 4c 53 49 40 00 00 00 40 02 00 00 03 00 00 00
+Selected printable-string matches: 3
+  0x00004020: A536NKSUIGZI2
+  0x00004050: SM-A536N_KOR_KX_EKEY3
+  0x00005080: avbtool 1.2.0
+
+==============================================================================
+FILE: ldfw.img.lz4
+Compressed size: 395226 bytes
+Compressed SHA-256: 3801d29a23ab54099b3850ef2c859d69ff451647a0f56c0eb9f843df0e8c38fc
+Decompression: OK
+Decompressed size: 8388608 bytes
+Decompressed SHA-256: 5e42a40d50956e53305f01bb862bef1e396dc2b46376085ba00e9976a7743360
+First 16 bytes: 1e ab ad 10 00 10 21 00 98 01 10 00 80 01 10 00
+Selected printable-string matches: 8
+  0x000000ac:  f71432f  37d0d8b  38c66ee  b0f6567  0c2c17a exynos8825 jymin 2023-10-19 17:22 KST clang version 3.8.0 (tags/RELEASE_380/final)
+  0x002110ac:  9e558bf  acc2c81  64c0b70  3105dd2  1784eaa exynos8825 jymin 2023-10-19 17:22 KST clang version 3.8.0 (tags/RELEASE_380/final)
+  0x002280ac:  5cb28ac  30ad579  6a6d595  1d77f3d  364cbaf exynos8825 jymin 2023-10-19 17:22 KST clang version 3.8.0 (tags/RELEASE_380/final)
+  0x003890ac:  8844ee8  9f8419a  af0cbb5  3b421b9  558c619 exynos8825 jymin 2023-10-19 17:22 KST clang version 3.8.0 (tags/RELEASE_380/final)
+  0x003da0ac:  28c9a9e9  1b51d21a  9e164c90  d5a3300e  4d02c748 exynos8825 jymin 2023-10-19 17:22 KST clang version 3.8.0 (tags/RELEASE_380/final)
+  0x003fc020: A536NKSUIGZI2
+  0x003fc050: SM-A536N_KOR_KX_EKEY3
+  0x003fd080: avbtool 1.2.0
+
+==============================================================================
+FILE: sboot.bin.lz4
+Compressed size: 2079486 bytes
+Compressed SHA-256: 6b504449e6be986c2acd81ab3fb21c2cb644a299bb75e16e2172504370b6607f
+Decompression: OK
+Decompressed size: 8388608 bytes
+Decompressed SHA-256: 318d4907470c956d62e348629532fa0b7c90a4f91e6790f882659b08fbc88e2e
+First 16 bytes: 98 00 00 00 ca 85 6d 6a 64 61 65 68 00 00 00 00
+Selected printable-string matches: 345
+  0x000015b0: v2.4(release):HEC1-240827-Android12-5.10-PT72589-s5e8825-1-g30362efcba
+  0x0002b36a: version: 
+  0x0002ba45: version info - 
+  0x000454ec: release_
+  0x000e9ac2: version
+  0x0025f773: %s : Check Samsung Secure Info
+  0x0025fc18: X509 - The CRT/CRL/CSR version element is invalid
+  0x0025ff77: panel_get_exynos_panel_info
+  0x002608b3: build info: %s
+  0x00260d3e: Not a JPEG file: starts with 0x%02x 0x%02x
+  0x00260d69: Copyright (C) 1991-2019 The libjpeg-turbo Project and many others
+  0x00261383: exynos_remove_unnecessary_region
+  0x0026180b: [E]%s:%d payload version isn't matched(%02x/%02x)
+  0x00261cfc: lib/libavb/avb_cmdline.c
+  0x00261d15: androidboot.vbmeta.hash_alg
+  0x00261da0: Secure boot: disabled
+  0x0026201f: Invalid Version Info! 0x%2x
+  0x002631a1: [CM] set os_version & os_patch_level: success
+  0x002633b4: com.android.build.system.security_patch
+  0x002633e6: VBMETA %s, %s
+  0x00263df1: [E]%s:%d Unknown version(%u)
+  0x00263f31: %s: CP version length overflowed
+  0x00264d6d: Invalid JPEG file structure: SOS before SOF
+  0x00265178: [CM] set os_version & os_patch_level: fail: r0:0x%llx, r1:0x%llx, r2:0x%llx, r3:0x%llx
+  0x002651d0: [OTP] ROM_SECURE_BOOT_KEY check failed: r0:0x%llx, r1:0x%llx, r2:0x%llx, r3:0x%llx
+  0x002652ac: [AVB] ctx_ptr is Null
+  0x002652c3: Secure boot is enabled (secure chip)
+  0x00265365: %s: header_version %d is not supported.
+  0x002656fc: [E]%s:%d Unknown version(%02x/%02x/%02x/%02x)
+  0x002658be: X509 - CRT/CRL/CSR has an unsupported version number
+  0x00265a4e: assert fail: (((uintptr_t)image_data) & (AVB_ALIGNMENT_SIZE - 1)) == 0
+  0x00265a96: assert fail: ret == AVB_SLOT_VERIFY_RESULT_OK
+  0x00265b0a: lib/libavb/avb_vbmeta_image.c
+  0x00265b43: androidboot.vbmeta.device_state
+  0x00265eec: sboot,rmem
+  0x0026686a: [BRST] %s: magic = %x / version = %x / total sz = %lx / MAX = %d
+  0x0026716c: /exynos-ehld/threshold
+  0x002674ed: ldfw: %dth ldfw's version 0x%x name : %s
+  0x002675e7: SM-A536N
+  0x002679bc: lm_cmd_set_version
+  0x00267cd5: lib/libavb/avb_slot_verify.c
+  0x00267f77: [E]%s:%d Unknown ITL version(0x%04x)
+  0x00268194: exynos-cpuhp.max_cpus
+  0x002685a7: bldp_internal_set_kernel_build_info
+  0x002695b6: /exynos-ehld/dbgc
+  0x00269936: AVB: vendor_patch_level: 0x%x
+  0x00269bc8: %s:%d: Not found exynos usb phy handle
+  0x0026a0d5: Mismatch between image version and libavb version.
+  0x0026a117: androidboot.vbmeta.size
+  0x0026a180: Secure boot: read failed
+  0x0026a3d3: %s: failed to get exynos_panel_info
+  0x0026ac12: [ IDX]       RTC       / RR (CNT) / KEY / M / VERSION
+  0x0026b063: Wrong JPEG library version: library is %d, caller expects %d
+  0x0026b113: Corrupt JPEG data: %u extraneous bytes before marker 0x%02x
+  0x0026b14f: Premature end of JPEG file
+  0x0026b40f: test_time_conversion_check_result
+  0x0026b6ca: %s: H-Arx info version is old version [%lx]
+  0x0026b76a: A536NKSUIGZI2
+  0x0026b790: [AVB] Root of trust error ret: 0x%X
+  0x0026b7de: s5e8825
+  0x0026bcda: [E]%s:%d Failed to check em version
+  0x0026bf08: [D]%s:%d version : %s
+  0x0026c0f6: %s: JPEG Load Failed
+  0x0026c143: lib/libavb/avb_kernel_cmdline_descriptor.c
+  0x0026c16e: assert fail: avb_strcmp(slot_data->vbmeta_images[0].partition_name, "boot") == 0
+  0x0026c1c0: : Invalid rollback_index_location.
+  0x0026c561: exynos-cpuhp.available_cpus
+  0x0026cf12: [DHIS] %s: not initialized (version: %x -> %x)
+  0x0026d4ab: Buffer passed to JPEG library is too small
+  0x0026d6f0: %s: diff_ver: %d, version : 0x%x, I2C_ERR_remain : %d
+  0x0026d92f: [CM] set os_version & os_patch_level: start
+  0x0026daec: exynos_read_is_device_unlocked
+  0x0026db2a: Secure boot is disabled (non-secure chip)
+  0x0026e207: assert fail: ops->validate_vbmeta_public_key != NULL
+  0x0026e262: : Error verifying vbmeta image: invalid vbmeta header
+  0x0026e33d: Release string does not end with a NUL byte.
+  0x0026e777: Only official released binaries are allowed to be flashed(%s)
+  0x0026e94e: Current RPMB version is Single Policy
+  0x0026e9d1: %s: get sw_version
+  0x0026f2ac: %*sVersion: %ld (0x%lX)
+  0x0026f61f: Unsupported JPEG process: SOF type 0x%02x
+  0x0026f649: Corrupt JPEG data: bad Huffman code
+  0x0026fb81: [AVB 2.0 ERR] Fail to read AVB pubkey [ret: 0x%X]
+  0x0026fc05: avb_main
+  0x0026fc0e: AVB: iccc_os_version: %s (%d)
+  0x00270189: [E]%s:%d It's not supported version(%d)
+  0x002702a7: %s: Too many vbmeta images. (%d)
+  0x002703cf: androidboot.vbmeta.digest
+  0x00270414: Secure boot: enabled (test key)
+  0x0027071d: %s Can't find exynos_panel_info
+  0x002709a1: Current RPMB version : 0x%x
+  0x00271b48: [CM] block verified boot commands: success
+  0x00271b92: [OTP] invalid ROM_SECURE_BOOT_KEY addresss
+  0x00271cd4: exynos_read_rollback_index
+  0x00271d14: [AVB] os_version parsing fail
+  0x00272462: lib/libavb/avb_descriptor.c
+  0x002724bf: %s: Error verifying vbmeta image: invalid vbmeta header (%d)
+  0x002732f1: release_buffer_in_v3_smp
+  0x0027385a: Adobe APP14 marker: version %d, flags 0x%04x 0x%04x, transform %d
+  0x002738e9: Corrupt JPEG data: found marker 0x%02x instead of RST%d
+  ... 245 additional matches omitted
+
+==============================================================================
+FILE: tzar.img.lz4
+Compressed size: 1755189 bytes
+Compressed SHA-256: baf2fe6bc23ecebe1cd651bf031444e26d5ac2cf06cef2805eb399011acba87f
+Decompression: OK
+Decompressed size: 7340816 bytes
+Decompressed SHA-256: 800dc54de8e80e0281cc5c94c3bbeaabf8270f19cde2cee9d80e6dd224ef4d64
+First 16 bytes: ed c5 3e 00 bb c0 1a 00 02 21 4c 18 b3 c0 1a 00
+Selected printable-string matches: 46
+  0x0000d2c8: .gnu.version,
+  0x0000d2e9: build-id2
+  0x0000f666: urelease
+  0x0001ea56: .gnu.version,
+  0x0001ea77: build-id2
+  0x00045878: .gnu.version_r
+  0x000458b0: build-idX
+  0x0004e018: .gnu.version_r&
+  0x0004e044: build-idK
+  0x0004e970: release
+  0x0006d7ba: .gnu.version_r
+  0x0006d7f2: build-id%
+  0x00096509: 4 version
+  0x0012080e: clang versionG
+  0x00125e38: build-id`
+  0x0013477f: release_fbz
+  0x00138f2a: ISP_IOCTL_RELEASE_FB
+  0x00177002: .gnu.version_r
+  0x0017703a: build-idX
+  0x0018e581: .gnu.version,
+  0x0018e5a2: build-id2
+  0x0018e931: rrelease3
+  0x0018fd8a: wRELEASE(
+  0x00190e23: UNOFFICIAL_BUILD_MODEL
+  0x00191221: -rollback
+  0x00198408: .gnu.version_r
+  0x0019843c: build-idS
+  0x00198d26: wRELEASE(
+  0x001998b3: UNOFFICIAL_BUILD_MODEL
+  0x0019f133: |Releasee
+  0x001a6c29: .gnu.version
+  0x001a6c4a: build-id2
+  0x001abfb3: type=release"
+  0x001ac50f: RELEASE_ROOT_CERT
+  0x001ac521: RELEASE_ROOT_CERT_END
+  0x001ac6c5: s5e8825root0 
+  0x001ac78e: s5e8825root0Y0
+  0x001ace9e: s5e8825dlroot0 
+  0x001acf69: s5e8825dlroot0Y0
+  0x001b120c: .release_root_key
+  0x001b123b: .gnu.version
+  0x001b125a: .note.gnu.build-id
+  0x001b126d: .gnu.version_d
+  0x001b16d8: A536NKSUIGZI2
+  0x00700020: A536NKSUIGZI2
+  0x00700050: SM-A536N_KOR_KX_EKEY3
+
+==============================================================================
+FILE: tzsw.img.lz4
+Compressed size: 804094 bytes
+Compressed SHA-256: 759bb58f5e55082dc07f7afc8ba01ec06ebbd24c8c5d7ccaa7e11b78a2f57623
+Decompression: OK
+Decompressed size: 1572864 bytes
+Decompressed SHA-256: 11fcfb9005a666055e08302be61d61591a9e446bb5865a67d3c4db68d1ed86ef
+First 16 bytes: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+Selected printable-string matches: 3
+  0x00100020: A536NKSUIGZI2
+  0x00100050: SM-A536N_KOR_KX_EKEY3
+  0x00101080: avbtool 1.2.0
+
+==============================================================================
+FILE: uh.bin.lz4
+Compressed size: 154695 bytes
+Compressed SHA-256: b326bce396204874d6227bc995a4d449c742491dc0b8b82ac9c1c3811d246b9e
+Decompression: OK
+Decompressed size: 294312 bytes
+Decompressed SHA-256: 3ac58cf512726d1b1d964502db4ebd4420048e11b87aaa72b558896f7e776c84
+First 16 bytes: 47 52 45 45 4e 54 45 41 98 6a 04 00 00 00 00 00
+Selected printable-string matches: 5
+  0x00035ca8: /root/.rustup/toolchains/nightly-2021-06-13-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/fmt/builders.rs
+  0x000378c0: uH_a8f9d866  uH_5eabd783uH_6739ac73uH_5b107e42uH_8c18e9a9uH_ebb69d54 uH_f4be4916KDP set verified boot stateSet jar_ro and tesc sizeSet slub s2roKDP set freepointerSet cred backpoint pgdFree cred's security pointerPGD free(RWX)Mark PPT KDP p
+  0x0003f8e8:  uH_8a5edab2  uH_e18553dds5e8825RUSTUH_c61fd5f6 / 1.55.0 / Fri Dec 13 07:20:08 AM UTC 2024 / rootuH_c0943c30
+  0x00047ab8: A536NKSUIGZI2
+  0x00047ae8: SM-A536N_KOR_KX_EKEY3
+
+==============================================================================
+FILE: up_param.bin.lz4
+Compressed size: 2684018 bytes
+Compressed SHA-256: a02fd869bdd26e254095a563f48ddf65c10f7aed226ded35802661107354e8fc
+Decompression: OK
+Decompressed size: 3061760 bytes
+Decompressed SHA-256: 693c6252444f0fb9893539f333ae7a33d58868ab606e545eef9112aecbdc9ea6
+First 16 bytes: 53 55 44 5f 32 2e 6a 70 67 00 00 00 00 00 00 00
+Selected printable-string matches: 26
+  0x00000000: SUD_2.jpg
+  0x00002400: SUD_3.jpg
+  0x00004a00: letter.jpg
+  0x0001c600: SUD_4.jpg
+  0x0001ea00: SUD_10.jpg
+  0x00020e00: svb_orange.jpg
+  0x0003f600: low_battery_alert.jpg
+  0x00042c00: SUD_5.jpg
+  0x00045000: SUD_0.jpg
+  0x00047400: download.jpg
+  0x0006a200: warning_svb.jpg
+  0x000e7200: logo.jpg
+  0x0010a600: secure_error.jpg
+  0x0013ee00: warning.jpg
+  0x001b2e00: setting_logo.jpg
+  0x001b8e00: SUD_1.jpg
+  0x001bb000: lpm.jpg
+  0x001bce00: SUD_6.jpg
+  0x001bf200: SUD_9.jpg
+  0x001c1600: download_error.jpg
+  0x001e0200: booting_warning.jpg
+  0x001f3000: device_lock.jpg
+  0x00240a00: android_logo.jpg
+  0x00244400: SUD_8.jpg
+  0x00246800: device_unlock.jpg
+  0x002e6c00: SUD_7.jpg
+
+==============================================================================
+FILE: vbmeta.img.lz4
+Compressed size: 3939 bytes
+Compressed SHA-256: 1022d71cc2923505ddbbab172046511f8df7723f2983b666812fd66fad46070d
+Decompression: OK
+Decompressed size: 10576 bytes
+Decompressed SHA-256: 193d35331de54fc4109d32380ebf1bf17208bf1aec3d94a62c8eed5b29ab3812
+First 16 bytes: 41 56 42 30 00 00 00 01 00 00 00 00 00 00 00 00
+AVB HEADER: AVB0 magic present (header presence only)
+Selected printable-string matches: 10
+  0x00000080: avbtool 1.3.0
+  0x00001518: com.android.build.boot.os_version
+  0x00001560: com.android.build.boot.security_patch
+  0x000015b8: com.android.build.system.os_version
+  0x00001600: com.android.build.system.security_patch
+  0x00001658: com.android.build.vendor.os_version
+  0x000016a0: com.android.build.vendor.security_patch
+  0x00002660: A536NKSUIGZI2
+  0x00002690: SM-A536N_KOR_KX_EKEY3
+  0x000026dc: vbmeta.img
+
+==============================================================================
+INTERPRETATION LIMITS
+- A matching string or magic value does not prove a vulnerability is present.
+- Absence of a string does not prove the corresponding code is absent.
+- This report does not determine exploitability, unlock eligibility, or KEY2 state.
+- No firmware image was modified, signed, flashed, or executed.
