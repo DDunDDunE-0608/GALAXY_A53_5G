@@ -65,6 +65,6 @@ def main():
         lines.append("")
     lines += [f"Candidate stores: {len(hits)}",
       "This is an index for manual validation, not proof of pointer initialization, runtime reachability, memory safety, or vulnerability."]
-    OUT.write_text("\n".join(lines)+"\\n",encoding="utf-8")
+    OUT.write_text("\n".join(lines)+"\n",encoding="utf-8")
     print("\n".join(lines[:400]))
 if __name__=="__main__": main()
