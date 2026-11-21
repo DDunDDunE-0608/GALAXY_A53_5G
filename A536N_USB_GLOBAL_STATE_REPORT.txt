@@ -1,8 +1,49 @@
 SM-A536N S-BOOT USB RECEIVE GLOBAL-STATE TRACE
 Read-only AArch64 disassembly using Capstone.
 Offsets are shown as image-relative addresses; runtime load base is not assumed.
-Disassembly window: 0x000f8e80..0x000f9300
+Disassembly window: 0x000f8de0..0x000f9300
+Focus: inspect context for candidate stores to globals at +0x1B8, +0x1C0, and +0x1C8.
 
+0x000f8de0: 293142b9         ldr       w9, [x9, #0x230]
+0x000f8de4: 3f01136b         cmp       w9, w19
+0x000f8de8: 03010054         b.lo      #0xf8e08
+0x000f8dec: e203132a         mov       w2, w19
+0x000f8df0: e00308aa         mov       x0, x8
+0x000f8df4: 2cc20194         bl        #0x1696a4
+0x000f8df8: 811641f9         ldr       x1, [x20, #0x228]
+0x000f8dfc: e00301aa         mov       x0, x1
+0x000f8e00: e103132a         mov       w1, w19
+0x000f8e04: 20fdff97         bl        #0xf8284
+0x000f8e08: f44f41a9         ldp       x20, x19, [sp, #0x10]
+0x000f8e0c: e0031f2a         mov       w0, wzr
+0x000f8e10: fd7bc2a8         ldp       x29, x30, [sp], #0x20
+0x000f8e14: c0035fd6         ret       
+0x000f8e18: 39fdff17         b         #0xf82fc
+0x000f8e1c: 280b00f0         adrp      x8, #0x25f000
+0x000f8e20: 8a100090         adrp      x10, #0x308000
+0x000f8e24: 002d41fd         ldr       d0, [x8, #0x258]
+0x000f8e28: 489543f9         ldr       x8, [x10, #0x728]
+0x000f8e2c: 69230090         adrp      x9, #0x564000
+0x000f8e30: 29e10691         add       x9, x9, #0x1b8
+0x000f8e34: 227d00a9         stp       x2, xzr, [x9]
+0x000f8e38: 4a08c89a         udiv      x10, x2, x8
+0x000f8e3c: 4b89089b         msub      x11, x10, x8, x2
+0x000f8e40: 4a050091         add       x10, x10, #1
+0x000f8e44: 4a7d089b         mul       x10, x10, x8
+0x000f8e48: 7f0100f1         cmp       x11, #0
+0x000f8e4c: 4a008a9a         csel      x10, x2, x10, eq
+0x000f8e50: 1f0102eb         cmp       x8, x2
+0x000f8e54: 0831829a         csel      x8, x8, x2, lo
+0x000f8e58: 0bfd58d3         lsr       x11, x8, #0x18
+0x000f8e5c: 208502a9         stp       x0, x1, [x9, #0x28]
+0x000f8e60: 200d00fd         str       d0, [x9, #0x18]
+0x000f8e64: 2a0900f9         str       x10, [x9, #0x10]
+0x000f8e68: ab0000b5         cbnz      x11, #0xf8e7c
+0x000f8e6c: 69230090         adrp      x9, #0x564000
+0x000f8e70: 6a230090         adrp      x10, #0x564000
+0x000f8e74: 210101f9         str       x1, [x9, #0x200]
+0x000f8e78: 482102b9         str       w8, [x10, #0x220]
+0x000f8e7c: e0031f2a         mov       w0, wzr
 0x000f8e80: c0035fd6         ret       
 0x000f8e84: fd7bbba9         stp       x29, x30, [sp, #-0x50]!
 0x000f8e88: fc6701a9         stp       x28, x25, [sp, #0x10]
@@ -293,7 +334,8 @@ Disassembly window: 0x000f8e80..0x000f9300
 0x000f92fc: 1f000039         strb      wzr, [x0]
 
 Review checklist:
-- Identify the base/end pointers and their initialization stores in this routine.
+- Validate the candidate stores at 0xF8E34 and 0xF8E64 in surrounding control flow.
+- Track the values stored to the base/end pointers and their relationship to the allocated buffer.
 - Track every load/store to the globals used around the 0xF9000 receive loop.
-- Determine whether the command-specific comparisons use the same end pointer.
+- Determine whether command-specific comparisons use the same end pointer.
 - This report is disassembly evidence only; it does not prove runtime reachability or full safety.
