@@ -20,6 +20,7 @@ on:
       - 'tools/a536n_usb_global_state_scan.py'
       - 'tools/a536n_usb_global_xref_scan.py'
       - 'tools/a536n_usb_pointer_store_scan.py'
+      - 'tools/a536n_usb_pointer_store_provenance_scan.py'
       - '.github/workflows/a536n-bl-static.yml'
 
 permissions:
@@ -70,6 +71,9 @@ jobs:
       - name: Scan USB global pointer store references (read-only)
         run: /usr/bin/python3 tools/a536n_usb_pointer_store_scan.py
 
+      - name: Trace USB pointer store register provenance (read-only)
+        run: /usr/bin/python3 tools/a536n_usb_pointer_store_provenance_scan.py
+
       - name: Upload reports and extracted payloads
         uses: actions/upload-artifact@v4
         with:
@@ -82,9 +86,10 @@ jobs:
             A536N_USB_JPEG_FLOW_REPORT.txt
             A536N_USB_SIZE_GUARD_REPORT.txt
             A536N_USB_BUFFER_BOUNDS_REPORT.txt
-            A536N_USB_GLOBAL_STATE_REPORT.txt A536N_USB_GLOBAL_XREF_REPORT.txt A536N_USB_POINTER_STORE_REPORT.txt
+            A536N_USB_GLOBAL_STATE_REPORT.txt A536N_USB_GLOBAL_XREF_REPORT.txt A536N_USB_POINTER_STORE_REPORT.txt A536N_USB_POINTER_STORE_PROVENANCE_REPORT.txt
             A536N_USB_GLOBAL_XREF_REPORT.txt
             A536N_USB_POINTER_STORE_REPORT.txt
+            A536N_USB_POINTER_STORE_PROVENANCE_REPORT.txt
             analysis_payload/**
           if-no-files-found: error
           retention-days: 7
