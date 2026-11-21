@@ -17,6 +17,7 @@ on:
       - 'tools/a536n_usb_jpeg_flow_scan.py'
       - 'tools/a536n_usb_size_guard_check.py'
       - 'tools/a536n_usb_buffer_bounds_check.py'
+      - 'tools/a536n_usb_global_state_scan.py'
       - '.github/workflows/a536n-bl-static.yml'
 
 permissions:
@@ -35,7 +36,7 @@ jobs:
       - name: Install LZ4 decoder
         run: |
           sudo apt-get update
-          sudo apt-get install -y lz4
+          sudo apt-get install -y lz4 python3-capstone
 
       - name: Run read-only inventory
         run: python3 tools/a536n_bl_static_inventory.py
@@ -58,6 +59,9 @@ jobs:
       - name: Review USB receive buffer and parser bounds (read-only)
         run: python3 tools/a536n_usb_buffer_bounds_check.py
 
+      - name: Disassemble USB receive global state (read-only)
+        run: /usr/bin/python3 tools/a536n_usb_global_state_scan.py
+
       - name: Upload reports and extracted payloads
         uses: actions/upload-artifact@v4
         with:
@@ -70,6 +74,7 @@ jobs:
             A536N_USB_JPEG_FLOW_REPORT.txt
             A536N_USB_SIZE_GUARD_REPORT.txt
             A536N_USB_BUFFER_BOUNDS_REPORT.txt
+            A536N_USB_GLOBAL_STATE_REPORT.txt
             analysis_payload/**
           if-no-files-found: error
           retention-days: 7
@@ -78,7 +83,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add A536N_BL_STATIC_REPORT.txt A536N_DEEP_STATIC_REPORT.txt A536N_SBOOT_XREF_REPORT.txt A536N_S5E8825_SIGNATURE_REPORT.txt A536N_USB_JPEG_FLOW_REPORT.txt A536N_USB_SIZE_GUARD_REPORT.txt A536N_USB_BUFFER_BOUNDS_REPORT.txt
+          git add A536N_BL_STATIC_REPORT.txt A536N_DEEP_STATIC_REPORT.txt A536N_SBOOT_XREF_REPORT.txt A536N_S5E8825_SIGNATURE_REPORT.txt A536N_USB_JPEG_FLOW_REPORT.txt A536N_USB_SIZE_GUARD_REPORT.txt A536N_USB_BUFFER_BOUNDS_REPORT.txt A536N_USB_GLOBAL_STATE_REPORT.txt
           if ! git diff --cached --quiet; then
             git commit -m "Update SM-A536N BL static analysis reports"
             git push origin HEAD:main
