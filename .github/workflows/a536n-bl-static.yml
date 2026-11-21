@@ -8,6 +8,7 @@ on:
       - 'BL_A536NKSUIGZI2_A536NKSUIGZI2_MQB114816381_REV00_user_low_ship_MULTI_CERT/**'
       - 'tools/a536n_bl_static_inventory.py'
       - 'tools/a536n_bl_extract_payloads.py'
+      - 'tools/a536n_sboot_xref_scan.py'
       - '.github/workflows/a536n-bl-static.yml'
 
 permissions:
@@ -26,13 +27,16 @@ jobs:
       - name: Install LZ4 decoder
         run: |
           sudo apt-get update
-          sudo apt-get install -y lz4
+          sudo apt-get install -y lz4 python3-capstone
 
       - name: Run read-only inventory
         run: python3 tools/a536n_bl_static_inventory.py
 
       - name: Extract S-Boot and UP_PARAM for offline static inspection
         run: python3 tools/a536n_bl_extract_payloads.py
+
+      - name: Scan AArch64 references to JPEG and secure-boot strings (read-only)
+        run: python3 tools/a536n_sboot_xref_scan.py
 
       - name: Upload reports and extracted payloads
         uses: actions/upload-artifact@v4
@@ -41,6 +45,7 @@ jobs:
           path: |
             A536N_BL_STATIC_REPORT.txt
             A536N_DEEP_STATIC_REPORT.txt
+            A536N_SBOOT_XREF_REPORT.txt
             analysis_payload/**
           if-no-files-found: error
           retention-days: 7
@@ -49,7 +54,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add A536N_BL_STATIC_REPORT.txt A536N_DEEP_STATIC_REPORT.txt
+          git add A536N_BL_STATIC_REPORT.txt A536N_DEEP_STATIC_REPORT.txt A536N_SBOOT_XREF_REPORT.txt
           if ! git diff --cached --quiet; then
             git commit -m "Update SM-A536N BL static analysis reports"
             git push origin HEAD:main
