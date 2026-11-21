@@ -77,15 +77,30 @@ def send_info_signature(data, base, bss):
         if (r0,d0,s0)==(0,0,0) and (r1,d1,s1)==(1,1,1):
             registrations.append((p0+v0,p1+v1))
     uses=[]
-    for off in range(0,len(data)-0x10,4):
-        w=[u32(data,off+i*4) for i in range(4)]
-        if w[0]&0x9f000000 != 0x90000000 or w[1]&0xffc00000 != 0xf9400000: continue
-        page,reg=adrp(w[0],base+off)
-        if ((w[1]>>5)&31 != reg): continue
-        addr=page+((w[1]>>10)&0xfff)*8
-        target=w[1]&31
-        if addr==callback_slot and w[2]==0x52800101 and w[3]==(0xd63f0000|(target<<5)):
-            uses.append(off)
+    callback_lengths=set()
+    for off in range(0,len(data)-0x30,4):
+        first=u32(data,off)
+        if first&0x9f000000 != 0x90000000: continue
+        page,reg=adrp(first,base+off)
+        for load_off in range(off+4,min(off+0x20,len(data)-3),4):
+            load=u32(data,load_off)
+            if (load&0xffc00000)!=0xf9400000 or ((load>>5)&31)!=reg: continue
+            addr=page+((load>>10)&0xfff)*8
+            if addr!=callback_slot: continue
+            target=load&31
+            for call_off in range(load_off+4,min(load_off+0x14,len(data)-3),4):
+                call=u32(data,call_off)
+                if call != (0xd63f0000|(target<<5)): continue
+                for arg_off in range(load_off+4,call_off,4):
+                    arg=u32(data,arg_off)
+                    # MOVZ W1, #imm16 (accept the firmware's actual immediate).
+                    if (arg&0x7f80001f)==0x52800001:
+                        callback_lengths.add((arg>>5)&0xffff)
+                        uses.append(off)
+                        break
+                break
+            break
+    uses=sorted(set(uses))
     counts=collections.Counter()
     for use in uses:
         found=set()
@@ -106,6 +121,7 @@ def send_info_signature(data, base, bss):
         "setter_pair_spacing_8_bytes":callback_slot==reply_slot+8,
         "registration_call_count":len(registrations),
         "callback_dispatch_count":len(uses),
+        "callback_length_immediates":sorted(callback_lengths),
         "reply_pointer_candidate_count":len(reply_candidates),
         "reply_pointer_inside_bss":len(reply_candidates)==1,
         "reply_callback_distance_within_4k":len(reply_candidates)==1 and 0<callback_slot-reply_candidates[0]<=PAGE,
