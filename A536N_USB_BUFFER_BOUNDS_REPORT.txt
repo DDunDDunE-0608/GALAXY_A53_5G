@@ -1,0 +1,54 @@
+SM-A536N S-BOOT USB RECEIVE-BUFFER / PARSER BOUNDS REVIEW
+Read-only byte-pattern validation of selected AArch64 sequences.
+No device interaction, exploit payload generation, flashing, or fuse operation.
+S-Boot image size: 8388608 bytes
+
+receive_buffer_alloc_512KiB: MATCH @ 0x000f8f24
+  0x000f8f24: 0x52a00100
+  0x000f8f28: 0x940188f6
+  0x000f8f2c: 0xf9011e80
+  0x000f8f30: 0xb4009120
+receive_buffer_zero_512KiB: MATCH @ 0x000f8f34
+  0x000f8f34: 0x52a00102
+  0x000f8f38: 0x2a1f03e1
+  0x000f8f3c: 0x9401c40f
+  0x000f8f40: 0xf9411e88
+current_pointer_plus_received_length: MATCH @ 0x000f8fec
+  0x000f8fec: 0x2a1403f3
+  0x000f8ff0: 0x8b130168
+  0x000f8ff4: 0x7101953f
+  0x000f8ff8: 0xf900e148
+per_command_end_pointer_check: MATCH @ 0x000f9018
+  0x000f9018: 0x121d794a
+  0x000f901c: 0x7100095f
+  0x000f9020: 0x54001041
+  0x000f9024: 0xeb09011f
+  0x000f9028: 0x540014e2
+one_kib_threshold_and_parser_call: MATCH @ 0x000f918c
+  0x000f918c: 0x0b140108
+  0x000f9190: 0x7110011f
+  0x000f9194: 0xb901f268
+  0x000f9198: 0x54000ccb
+  0x000f919c: 0x9403218a
+parser_fixed_1KiB_copy: MATCH @ 0x001c17dc
+  0x001c17dc: 0xd11083ff
+  0x001c17e0: 0xaa0003e1
+  0x001c17e4: 0x910043e0
+  0x001c17e8: 0x52808002
+  0x001c17ec: 0x97fe9fae
+
+Static observations from the matching instruction sequences:
+- A receive-buffer allocation request of 0x80000 bytes (512 KiB) is visible, followed by a zero-fill call using the same size.
+- A running pointer is formed by adding a received-length value to a base pointer.
+- In the command-ID 0x66 path, the resulting pointer is compared with a separately loaded end pointer; the unsigned-greater-or-equal branch goes to a different path.
+- A 0x400 (1 KiB) threshold gates invocation of a command parser.
+- That parser reserves a 0x420-byte local frame and copies a fixed 0x400 bytes into a local area beginning at SP+0x10, then inspects fields in that local copy.
+- The 1 KiB local destination is consistent with the 1 KiB copy size. This alone does not prove that the source pointer always references 1 KiB of valid data.
+
+Limitations:
+- The full caller/callee dataflow and all command-ID paths still need tracing; this report does not prove that every receive path checks both start and end bounds.
+- The meaning and initialization of the end-pointer global must be established before treating the comparison as a complete bounds guarantee.
+- No conclusion about a reachable overflow or the SVE-2026-3546 vulnerability can be made from these patterns alone.
+- The observed 0x400 callback argument is not assumed to be a copy length unless the relevant callsite confirms it.
+
+All exact instruction windows matched: yes
