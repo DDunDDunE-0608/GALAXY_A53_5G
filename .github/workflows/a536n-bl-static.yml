@@ -10,6 +10,7 @@ on:
       - 'tools/a536n_bl_extract_payloads.py'
       - 'tools/a536n_sboot_xref_scan.py'
       - 'tools/a536n_s5e8825_signature_check.py'
+      - 'tools/a536n_usb_jpeg_flow_scan.py'
       - '.github/workflows/a536n-bl-static.yml'
 
 permissions:
@@ -42,6 +43,9 @@ jobs:
       - name: Check S5E8825 resolver signatures without generating exploit offsets
         run: python3 tools/a536n_s5e8825_signature_check.py
 
+      - name: Scan USB and JPEG diagnostic references (read-only)
+        run: python3 tools/a536n_usb_jpeg_flow_scan.py
+
       - name: Upload reports and extracted payloads
         uses: actions/upload-artifact@v4
         with:
@@ -51,6 +55,7 @@ jobs:
             A536N_DEEP_STATIC_REPORT.txt
             A536N_SBOOT_XREF_REPORT.txt
             A536N_S5E8825_SIGNATURE_REPORT.txt
+            A536N_USB_JPEG_FLOW_REPORT.txt
             analysis_payload/**
           if-no-files-found: error
           retention-days: 7
