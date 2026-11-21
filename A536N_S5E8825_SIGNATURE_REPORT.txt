@@ -8,8 +8,9 @@ bss_map: resolved
 setter_pattern_count: 1
 setter_pair_spacing_8_bytes: True
 registration_call_count: 1
-callback_dispatch_count: 0
-reply_pointer_candidate_count: 0
+callback_dispatch_count: 1
+callback_length_immediates: [1024]
+reply_pointer_candidate_count: 2
 reply_pointer_inside_bss: False
 reply_callback_distance_within_4k: False
 direct xrefs to parallel_download_init: 3
