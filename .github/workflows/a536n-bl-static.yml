@@ -18,6 +18,7 @@ on:
       - 'tools/a536n_usb_size_guard_check.py'
       - 'tools/a536n_usb_buffer_bounds_check.py'
       - 'tools/a536n_usb_global_state_scan.py'
+      - 'tools/a536n_usb_global_xref_scan.py'
       - '.github/workflows/a536n-bl-static.yml'
 
 permissions:
@@ -62,6 +63,9 @@ jobs:
       - name: Disassemble USB receive global state (read-only)
         run: /usr/bin/python3 tools/a536n_usb_global_state_scan.py
 
+      - name: Cross-reference USB global-state accesses across S-Boot (read-only)
+        run: /usr/bin/python3 tools/a536n_usb_global_xref_scan.py
+
       - name: Upload reports and extracted payloads
         uses: actions/upload-artifact@v4
         with:
@@ -75,6 +79,7 @@ jobs:
             A536N_USB_SIZE_GUARD_REPORT.txt
             A536N_USB_BUFFER_BOUNDS_REPORT.txt
             A536N_USB_GLOBAL_STATE_REPORT.txt
+            A536N_USB_GLOBAL_XREF_REPORT.txt
             analysis_payload/**
           if-no-files-found: error
           retention-days: 7
