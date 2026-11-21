@@ -1,0 +1,106 @@
+SM-A536N USB BOUNDS INITIALIZER CALLSITE TRACE (READ-ONLY)
+Image size: 8388608 bytes
+Direct BL target scanned: 0x000f8e1c
+Direct BL references found: 1
+Method: aligned AArch64 BL immediate scan, followed by Capstone disassembly of callsite context.
+A missing direct BL reference would not exclude indirect calls or function-pointer dispatch.
+
+CALLSITE CONTEXT 0x001c29b4..0x001c2ab4 (call at 0x001c2a34)
+0x001c29b4: 28008052         mov       w8, #1
+0x001c29b8: 2000b0d2         mov       x0, #0x80010000
+0x001c29bc: ff060eb9         str       wzr, [x23, #0xe04]
+0x001c29c0: c85a02b9         str       w8, [x22, #0x258]
+0x001c29c4: 0001c0f2         movk      x0, #8, lsl #32
+0x001c29c8: 693100d0         adrp      x9, #0x7f0000
+0x001c29cc: 29a13791         add       x9, x9, #0xde8
+0x001c29d0: 683100d0         adrp      x8, #0x7f0000
+0x001c29d4: 0a018eb9         ldrsw     x10, [x8, #0xe00]
+0x001c29d8: 280140f9         ldr       x8, [x9]
+0x001c29dc: 200500f9         str       x0, [x9, #8]
+0x001c29e0: e20314aa         mov       x2, x20
+0x001c29e4: 01000a8b         add       x1, x0, x10
+0x001c29e8: e00308aa         mov       x0, x8
+0x001c29ec: 12000014         b         #0x1c2a34
+0x001c29f0: e00600f0         adrp      x0, #0x2a1000
+0x001c29f4: 00742091         add       x0, x0, #0x81d
+0x001c29f8: 708bfe97         bl        #0x1657b8
+0x001c29fc: 00000014         b         #0x1c29fc
+0x001c2a00: 70bbfe97         bl        #0x1717c0
+0x001c2a04: a8024eb9         ldr       w8, [x21, #0xe00]
+0x001c2a08: 693100d0         adrp      x9, #0x7f0000
+0x001c2a0c: 20f906f9         str       x0, [x9, #0xdf0]
+0x001c2a10: 693100d0         adrp      x9, #0x7f0000
+0x001c2a14: 21f946f9         ldr       x1, [x9, #0xdf0]
+0x001c2a18: 1f050071         cmp       w8, #1
+0x001c2a1c: 8b000054         b.lt      #0x1c2a2c
+0x001c2a20: 80f646f9         ldr       x0, [x20, #0xde8]
+0x001c2a24: 2140288b         add       x1, x1, w8, uxtw
+0x001c2a28: 02000014         b         #0x1c2a30
+0x001c2a2c: 80f646f9         ldr       x0, [x20, #0xde8]
+0x001c2a30: e20313aa         mov       x2, x19
+0x001c2a34: fad8fc97         bl        #0xf8e1c
+0x001c2a38: b6fdff17         b         #0x1c2110
+0x001c2a3c: 28a740b9         ldr       w8, [x25, #0xa4]
+0x001c2a40: e8000035         cbnz      w8, #0x1c2a5c
+0x001c2a44: 683100d0         adrp      x8, #0x7f0000
+0x001c2a48: 08e13791         add       x8, x8, #0xdf8
+0x001c2a4c: 29008052         mov       w9, #1
+0x001c2a50: 1f7d5f88         ldxr      wzr, [x8]
+0x001c2a54: 097d0a88         stxr      w10, w9, [x8]
+0x001c2a58: caffff35         cbnz      w10, #0x1c2a50
+0x001c2a5c: 763100d0         adrp      x22, #0x7f0000
+0x001c2a60: c8024eb9         ldr       w8, [x22, #0xe00]
+0x001c2a64: 1901180b         add       w25, w8, w24
+0x001c2a68: 08e0a052         mov       w8, #0x7000000
+0x001c2a6c: 3f03086b         cmp       w25, w8
+0x001c2a70: f91f00b9         str       w25, [sp, #0x1c]
+0x001c2a74: acd9ff54         b.gt      #0x1c25a8
+0x001c2a78: e82340b9         ldr       w8, [sp, #0x20]
+0x001c2a7c: 68000034         cbz       w8, #0x1c2a88
+0x001c2a80: e0031f2a         mov       w0, wzr
+0x001c2a84: 15000014         b         #0x1c2ad8
+0x001c2a88: e0574529         ldp       w0, w21, [sp, #0x28]
+0x001c2a8c: 432dff97         bl        #0x18df98
+0x001c2a90: f40300aa         mov       x20, x0
+0x001c2a94: e0031f2a         mov       w0, wzr
+0x001c2a98: d40100b4         cbz       x20, #0x1c2ad0
+0x001c2a9c: 683100d0         adrp      x8, #0x7f0000
+0x001c2aa0: 08b94db9         ldr       w8, [x8, #0xdb8]
+0x001c2aa4: 1f050071         cmp       w8, #1
+0x001c2aa8: 40010054         b.eq      #0x1c2ad0
+0x001c2aac: 683100d0         adrp      x8, #0x7f0000
+0x001c2ab0: 693100d0         adrp      x9, #0x7f0000
+
+INITIALIZER BODY 0x000f8e1c..0x000f8e84
+0x000f8e1c: 280b00f0         adrp      x8, #0x25f000
+0x000f8e20: 8a100090         adrp      x10, #0x308000
+0x000f8e24: 002d41fd         ldr       d0, [x8, #0x258]
+0x000f8e28: 489543f9         ldr       x8, [x10, #0x728]
+0x000f8e2c: 69230090         adrp      x9, #0x564000
+0x000f8e30: 29e10691         add       x9, x9, #0x1b8
+0x000f8e34: 227d00a9         stp       x2, xzr, [x9]
+0x000f8e38: 4a08c89a         udiv      x10, x2, x8
+0x000f8e3c: 4b89089b         msub      x11, x10, x8, x2
+0x000f8e40: 4a050091         add       x10, x10, #1
+0x000f8e44: 4a7d089b         mul       x10, x10, x8
+0x000f8e48: 7f0100f1         cmp       x11, #0
+0x000f8e4c: 4a008a9a         csel      x10, x2, x10, eq
+0x000f8e50: 1f0102eb         cmp       x8, x2
+0x000f8e54: 0831829a         csel      x8, x8, x2, lo
+0x000f8e58: 0bfd58d3         lsr       x11, x8, #0x18
+0x000f8e5c: 208502a9         stp       x0, x1, [x9, #0x28]
+0x000f8e60: 200d00fd         str       d0, [x9, #0x18]
+0x000f8e64: 2a0900f9         str       x10, [x9, #0x10]
+0x000f8e68: ab0000b5         cbnz      x11, #0xf8e7c
+0x000f8e6c: 69230090         adrp      x9, #0x564000
+0x000f8e70: 6a230090         adrp      x10, #0x564000
+0x000f8e74: 210101f9         str       x1, [x9, #0x200]
+0x000f8e78: 482102b9         str       w8, [x10, #0x220]
+0x000f8e7c: e0031f2a         mov       w0, wzr
+0x000f8e80: c0035fd6         ret       
+
+Review notes:
+- Establish the caller-supplied meaning and origin of x2 before treating it as a transfer length.
+- Establish the runtime value and meaning of the global loaded into x8 before interpreting alignment arithmetic.
+- Verify whether the initializer is reached on the USB receive path.
+- This is static evidence only; it does not prove runtime reachability, memory unsafety, or vulnerability.
