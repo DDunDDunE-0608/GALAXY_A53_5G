@@ -39,7 +39,7 @@ def image_map(data):
             continue
         name_off = name-start
         if not 0 <= name_off < len(data): continue
-        name_end = data.find(b"\\0", name_off, min(len(data), name_off+0x80))
+        name_end = data.find(b"\0", name_off, min(len(data), name_off+0x80))
         if name_end < 0: continue
         label = data[name_off:name_end]
         if label and all(0x20 <= x < 0x7f for x in label):
@@ -114,7 +114,7 @@ def send_info_signature(data, base, bss):
 def string_xrefs(data, base, value):
     offs=[]; p=0
     while True:
-        p=data.find(value+b"\\0",p)
+        p=data.find(value+b"\0",p)
         if p<0: break
         offs.append(p); p+=1
     refs=[]
@@ -155,7 +155,7 @@ def main():
         "- This is not a proof of an exploitable out-of-bounds copy: copy length, destination capacity, runtime initialization, and November 2026 patch changes require separate verification.",
         "- No exploit payload is generated and no device state is changed.",
     ]
-    REPORT.write_text("\\n".join(lines)+"\\n",encoding="utf-8")
-    print("\\n".join(lines))
+    REPORT.write_text("\n".join(lines)+"\n",encoding="utf-8")
+    print("\n".join(lines))
 
 if __name__=="__main__": main()
