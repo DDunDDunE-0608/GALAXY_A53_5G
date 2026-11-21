@@ -11,6 +11,7 @@ on:
       - 'tools/a536n_sboot_xref_scan.py'
       - 'tools/a536n_s5e8825_signature_check.py'
       - 'tools/a536n_usb_jpeg_flow_scan.py'
+      - 'tools/a536n_usb_size_guard_check.py'
       - '.github/workflows/a536n-bl-static.yml'
 
 permissions:
@@ -46,6 +47,9 @@ jobs:
       - name: Scan USB and JPEG diagnostic references (read-only)
         run: python3 tools/a536n_usb_jpeg_flow_scan.py
 
+      - name: Validate USB packet-size guard instruction sequence (read-only)
+        run: python3 tools/a536n_usb_size_guard_check.py
+
       - name: Upload reports and extracted payloads
         uses: actions/upload-artifact@v4
         with:
@@ -56,6 +60,7 @@ jobs:
             A536N_SBOOT_XREF_REPORT.txt
             A536N_S5E8825_SIGNATURE_REPORT.txt
             A536N_USB_JPEG_FLOW_REPORT.txt
+            A536N_USB_SIZE_GUARD_REPORT.txt
             analysis_payload/**
           if-no-files-found: error
           retention-days: 7
@@ -64,7 +69,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add A536N_BL_STATIC_REPORT.txt A536N_DEEP_STATIC_REPORT.txt A536N_SBOOT_XREF_REPORT.txt A536N_S5E8825_SIGNATURE_REPORT.txt A536N_USB_JPEG_FLOW_REPORT.txt
+          git add A536N_BL_STATIC_REPORT.txt A536N_DEEP_STATIC_REPORT.txt A536N_SBOOT_XREF_REPORT.txt A536N_S5E8825_SIGNATURE_REPORT.txt A536N_USB_JPEG_FLOW_REPORT.txt A536N_USB_SIZE_GUARD_REPORT.txt
           if ! git diff --cached --quiet; then
             git commit -m "Update SM-A536N BL static analysis reports"
             git push origin HEAD:main
