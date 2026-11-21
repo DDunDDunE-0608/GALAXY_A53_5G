@@ -68,7 +68,7 @@ jobs:
             A536N_SBOOT_XREF_REPORT.txt
             A536N_S5E8825_SIGNATURE_REPORT.txt
             A536N_USB_JPEG_FLOW_REPORT.txt
-            A536N_USB_SIZE_GUARD_REPORT.txt A536N_USB_BUFFER_BOUNDS_REPORT.txt
+            A536N_USB_SIZE_GUARD_REPORT.txt
             A536N_USB_BUFFER_BOUNDS_REPORT.txt
             analysis_payload/**
           if-no-files-found: error
