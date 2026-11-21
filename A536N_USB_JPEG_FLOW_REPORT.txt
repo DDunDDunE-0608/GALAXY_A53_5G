@@ -1,1 +1,358 @@
-SM-A536N S-BOOT USB/JPEG STATIC FLOW REPORT\nRead-only string cross-reference scan; no device interaction, loader build, flashing, or fuse changes.\nS-Boot size: 8388608 bytes; aligned AArch64 words scanned: 2097152\nReference method: ADRP+ADD immediate pairs only. Indirect tables, literal loads, and computed pointers may be missed.\n\nSTRING USB packet size is too big! @ 0x0028307d\n  occurrences: 0x28307d\n  direct ADRP+ADD references: 1\n  reference sequence at 0x001c1b40 (ADD at 0x001c1b44):\n       0x001c1b20: d61f0140  .word 0xd61f0140\n       0x001c1b24: b9801be1  .word 0xb9801be1\n       0x001c1b28: f0003173  ADRP x19, 0x7f0000\n       0x001c1b2c: 9136f273  ADD x19, x19, #0xdbc\n       0x001c1b30: d360fc28  .word 0xd360fc28\n       0x001c1b34: d3587c29  .word 0xd3587c29\n       0x001c1b38: 29002261  .word 0x29002261\n       0x001c1b3c: 34005f29  .word 0x34005f29\n    >> 0x001c1b40: d0000600  ADRP x0, 0x283000\n    >> 0x001c1b44: 9101f400  ADD x0, x0, #0x7d\n       0x001c1b48: 97fe8f1c  BL 0x1657b8\n       0x001c1b4c: f0003168  ADRP x8, 0x7f0000\n       0x001c1b50: f946f500  LDR x0, [x8, #0xde8]\n       0x001c1b54: b5004f20  .word 0xb5004f20\n       0x001c1b58: 90000700  ADRP x0, 0x2a1000\n       0x001c1b5c: 91207400  ADD x0, x0, #0x81d\n       0x001c1b60: 97fe8f16  BL 0x1657b8\n       0x001c1b64: 14000000  B 0x1c1b64\n\nSTRING Buffer passed to JPEG library is too small @ 0x0026d4ab\n  occurrences: 0x26d4ab\n  direct ADRP+ADD references: 0\n\nSTRING JPEG image is bigger than LCD @ 0x0027a7ce\n  occurrences: 0x27a7ce\n  direct ADRP+ADD references: 0\n\nSTRING Not a JPEG file @ 0x00260d3e\n  occurrences: 0x260d3e\n  direct ADRP+ADD references: 0\n\nSTRING JPEG Load Failed @ 0x0026c0fa\n  occurrences: 0x26c0fa\n  direct ADRP+ADD references: 0\n\nSTRING Error Exit at JPEG!! @ 0x00279a42\n  occurrences: 0x279a42\n  direct ADRP+ADD references: 1\n  reference sequence at 0x00238cac (ADD at 0x00238cb0):\n       0x00238c8c: 910003fd  ADD x29, x31, #0x0\n       0x00238c90: f9400008  LDR x8, [x0, #0x0]\n       0x00238c94: aa0003f3  .word 0xaa0003f3\n       0x00238c98: f9400908  LDR x8, [x8, #0x10]\n       0x00238c9c: d63f0100  .word 0xd63f0100\n       0x00238ca0: aa1303e0  .word 0xaa1303e0\n       0x00238ca4: 97ffaf6d  BL 0x224a58\n       0x00238ca8: f9400bf3  LDR x19, [x31, #0x10]\n    >> 0x00238cac: b0000200  ADRP x0, 0x279000\n    >> 0x00238cb0: 91290800  ADD x0, x0, #0xa42\n       0x00238cb4: a8c27bfd  .word 0xa8c27bfd\n       0x00238cb8: 17fcb2c0  B 0x1657b8\n       0x00238cbc: a9be7bfd  .word 0xa9be7bfd\n       0x00238cc0: f9000bf3  .word 0xf9000bf3\n       0x00238cc4: 910003fd  ADD x29, x31, #0x0\n       0x00238cc8: f9400013  LDR x19, [x0, #0x0]\n       0x00238ccc: 37f80101  .word 0x37f80101\n       0x00238cd0: b9407e68  LDR w8, [x19, #0x7c]\n\nSTRING get_usb_buffer @ 0x0028fed5\n  occurrences: 0x28fed5\n  direct ADRP+ADD references: 6\n  reference sequence at 0x000fa158 (ADD at 0x000fa160):\n       0x000fa138: f00033c9  ADRP x9, 0x775000\n       0x000fa13c: f9015933  .word 0xf9015933\n       0x000fa140: f94166d3  LDR x19, [x22, #0x2c8]\n       0x000fa144: 52800048  .word 0x52800048\n       0x000fa148: 14000142  B 0xfa650\n       0x000fa14c: f90162ff  .word 0xf90162ff\n       0x000fa150: 14000149  B 0xfa674\n       0x000fa154: f0000be0  ADRP x0, 0x279000\n    >> 0x000fa158: b0000ca1  ADRP x1, 0x28f000\n       0x000fa15c: 9131ac00  ADD x0, x0, #0xc6b\n    >> 0x000fa160: 913b5421  ADD x1, x1, #0xed5\n       0x000fa164: 9401ad95  BL 0x1657b8\n       0x000fa168: f90166df  .word 0xf90166df\n       0x000fa16c: b0000b60  ADRP x0, 0x267000\n       0x000fa170: f0000b21  ADRP x1, 0x261000\n       0x000fa174: 910a7400  ADD x0, x0, #0x29d\n       0x000fa178: 9102b421  ADD x1, x1, #0xad\n       0x000fa17c: 9401ad8f  BL 0x1657b8\n       0x000fa180: 14000000  B 0xfa180\n  reference sequence at 0x000fa220 (ADD at 0x000fa228):\n       0x000fa200: 7100655f  .word 0x7100655f\n       0x000fa204: 540005c8  B.cond cond=8\n       0x000fa208: d1015d29  .word 0xd1015d29\n       0x000fa20c: 1400002d  B 0xfa2c0\n       0x000fa210: b0000bc1  ADRP x1, 0x273000\n       0x000fa214: 912f9821  ADD x1, x1, #0xbe6\n       0x000fa218: 140001e5  B 0xfa9ac\n       0x000fa21c: f0000be0  ADRP x0, 0x279000\n    >> 0x000fa220: b0000ca1  ADRP x1, 0x28f000\n       0x000fa224: 9131ac00  ADD x0, x0, #0xc6b\n    >> 0x000fa228: 913b5421  ADD x1, x1, #0xed5\n       0x000fa22c: 9401ad63  BL 0x1657b8\n       0x000fa230: b0000b80  ADRP x0, 0x26b000\n       0x000fa234: f0000ca1  ADRP x1, 0x291000\n       0x000fa238: 9110c400  ADD x0, x0, #0x431\n       0x000fa23c: 913f6021  ADD x1, x1, #0xfd8\n       0x000fa240: 9401ad5e  BL 0x1657b8\n       0x000fa244: 14000000  B 0xfa244\n       0x000fa248: 52800402  .word 0x52800402\n  reference sequence at 0x000fa704 (ADD at 0x000fa70c):\n       0x000fa6e4: 94056db1  BL 0x255da8\n       0x000fa6e8: 34fffb00  .word 0x34fffb00\n       0x000fa6ec: f0000c40  ADRP x0, 0x285000\n       0x000fa6f0: 91169400  ADD x0, x0, #0x5a5\n       0x000fa6f4: 9401ac31  BL 0x1657b8\n       0x000fa6f8: f90162ff  .word 0xf90162ff\n       0x000fa6fc: 17ffffde  B 0xfa674\n       0x000fa700: f0000be0  ADRP x0, 0x279000\n    >> 0x000fa704: b0000ca1  ADRP x1, 0x28f000\n       0x000fa708: 9131ac00  ADD x0, x0, #0xc6b\n    >> 0x000fa70c: 913b5421  ADD x1, x1, #0xed5\n       0x000fa710: 9401ac2a  BL 0x1657b8\n       0x000fa714: b0000b80  ADRP x0, 0x26b000\n       0x000fa718: f0000ca1  ADRP x1, 0x291000\n       0x000fa71c: 9110c400  ADD x0, x0, #0x431\n       0x000fa720: 913f6021  ADD x1, x1, #0xfd8\n       0x000fa724: 9401ac25  BL 0x1657b8\n       0x000fa728: 14000000  B 0xfa728\n       0x000fa72c: b27e7bea  .word 0xb27e7bea\n  reference sequence at 0x000fa76c (ADD at 0x000fa774):\n       0x000fa74c: 9131a021  ADD x1, x1, #0xc68\n       0x000fa750: 14000097  B 0xfa9ac\n       0x000fa754: 52800028  .word 0x52800028\n       0x000fa758: f0000f33  ADRP x19, 0x2e1000\n       0x000fa75c: b901f6c8  .word 0xb901f6c8\n       0x000fa760: 9103aa73  ADD x19, x19, #0xea\n       0x000fa764: 17fffaa6  B 0xf91fc\n       0x000fa768: f0000be0  ADRP x0, 0x279000\n    >> 0x000fa76c: b0000ca1  ADRP x1, 0x28f000\n       0x000fa770: 9131ac00  ADD x0, x0, #0xc6b\n    >> 0x000fa774: 913b5421  ADD x1, x1, #0xed5\n       0x000fa778: 9401ac10  BL 0x1657b8\n       0x000fa77c: b0000b80  ADRP x0, 0x26b000\n       0x000fa780: f0000ca1  ADRP x1, 0x291000\n       0x000fa784: 9110c400  ADD x0, x0, #0x431\n       0x000fa788: 913f6021  ADD x1, x1, #0xfd8\n       0x000fa78c: 9401ac0b  BL 0x1657b8\n       0x000fa790: 14000000  B 0xfa790\n       0x000fa794: f0000f33  ADRP x19, 0x2e1000\n  reference sequence at 0x000fa83c (ADD at 0x000fa844):\n       0x000fa81c: 5280002c  .word 0x5280002c\n       0x000fa820: d1000508  .word 0xd1000508\n       0x000fa824: a9012d48  .word 0xa9012d48\n       0x000fa828: f900054b  .word 0xf900054b\n       0x000fa82c: 29003149  .word 0x29003149\n       0x000fa830: f94166d3  LDR x19, [x22, #0x2c8]\n       0x000fa834: 17ffff88  B 0xfa654\n       0x000fa838: f0000be0  ADRP x0, 0x279000\n    >> 0x000fa83c: b0000ca1  ADRP x1, 0x28f000\n       0x000fa840: 9131ac00  ADD x0, x0, #0xc6b\n    >> 0x000fa844: 913b5421  ADD x1, x1, #0xed5\n       0x000fa848: 9401abdc  BL 0x1657b8\n       0x000fa84c: aa1f03f5  .word 0xaa1f03f5\n       0x000fa850: 94027c8c  BL 0x199a80\n       0x000fa854: 34ffcb20  .word 0x34ffcb20\n       0x000fa858: 94027c98  BL 0x199ab8\n       0x000fa85c: b4fff0c0  .word 0xb4fff0c0\n       0x000fa860: aa0003f6  .word 0xaa0003f6\n       0x000fa864: aa1503e0  .word 0xaa1503e0\n  reference sequence at 0x000faab0 (ADD at 0x000faab8):\n       0x000faa90: f9400d09  LDR x9, [x8, #0x18]\n       0x000faa94: 8b130129  .word 0x8b130129\n       0x000faa98: a901fd09  .word 0xa901fd09\n       0x000faa9c: f9415a88  LDR x8, [x20, #0x2b0]\n       0x000faaa0: 8b130108  .word 0x8b130108\n       0x000faaa4: f9015a88  .word 0xf9015a88\n       0x000faaa8: 17fffef3  B 0xfa674\n       0x000faaac: f0000be0  ADRP x0, 0x279000\n    >> 0x000faab0: b0000ca1  ADRP x1, 0x28f000\n       0x000faab4: 9131ac00  ADD x0, x0, #0xc6b\n    >> 0x000faab8: 913b5421  ADD x1, x1, #0xed5\n       0x000faabc: 9401ab3f  BL 0x1657b8\n       0x000faac0: b0000b80  ADRP x0, 0x26b000\n       0x000faac4: f0000ca1  ADRP x1, 0x291000\n       0x000faac8: 9110c400  ADD x0, x0, #0x431\n       0x000faacc: 913f6021  ADD x1, x1, #0xfd8\n       0x000faad0: 9401ab3a  BL 0x1657b8\n       0x000faad4: 14000000  B 0xfaad4\n       0x000faad8: a9bf7bfd  .word 0xa9bf7bfd\n\nSTRING do_download @ 0x0029676a\n  occurrences: 0x29676a\n  direct ADRP+ADD references: 1\n  reference sequence at 0x00170994 (ADD at 0x0017099c):\n       0x00170974: 54ffffc1  B.cond cond=1\n       0x00170978: 528000a0  MOVZ w0, #0x5\n       0x0017097c: 940063c1  BL 0x189880\n       0x00170980: 9400662c  BL 0x18a230\n       0x00170984: 378801c0  .word 0x378801c0\n       0x00170988: 9400662a  BL 0x18a230\n       0x0017098c: 2a0003e2  .word 0x2a0003e2\n       0x00170990: f00008c0  ADRP x0, 0x28b000\n    >> 0x00170994: d0000921  ADRP x1, 0x296000\n       0x00170998: 91389c00  ADD x0, x0, #0xe27\n    >> 0x0017099c: 911da821  ADD x1, x1, #0x76a\n       0x001709a0: 97ffd386  BL 0x1657b8\n       0x001709a4: a9474ff4  .word 0xa9474ff4\n       0x001709a8: a94657f6  .word 0xa94657f6\n       0x001709ac: a9457bfd  .word 0xa9457bfd\n       0x001709b0: 12800000  .word 0x12800000\n       0x001709b4: 910203ff  ADD x31, x31, #0x80\n       0x001709b8: d65f03c0  .word 0xd65f03c0\n       0x001709bc: 71001a7f  .word 0x71001a7f\n\nSTRING parallel_download_init @ 0x0027a979\n  occurrences: 0x27a979\n  direct ADRP+ADD references: 3\n  reference sequence at 0x001719fc (ADD at 0x00171a04):\n       0x001719dc: f9400bf3  LDR x19, [x31, #0x10]\n       0x001719e0: a8c27bfd  .word 0xa8c27bfd\n       0x001719e4: d65f03c0  .word 0xd65f03c0\n       0x001719e8: d101c3ff  .word 0xd101c3ff\n       0x001719ec: a9057bfd  .word 0xa9057bfd\n       0x001719f0: f90033f3  .word 0xf90033f3\n       0x001719f4: 910143fd  ADD x29, x31, #0x50\n       0x001719f8: f0000940  ADRP x0, 0x29c000\n    >> 0x001719fc: b0000841  ADRP x1, 0x27a000\n       0x00171a00: 9124a800  ADD x0, x0, #0x92a\n    >> 0x00171a04: 9125e421  ADD x1, x1, #0x979\n       0x00171a08: 97ffcf6c  BL 0x1657b8\n       0x00171a0c: 90000009  ADRP x9, 0x171000\n       0x00171a10: 9000000a  ADRP x10, 0x171000\n       0x00171a14: 91232129  ADD x9, x9, #0x8c8\n       0x00171a18: 9125c14a  ADD x10, x10, #0x970\n       0x00171a1c: 9000000b  ADRP x11, 0x171000\n       0x00171a20: a9032be9  .word 0xa9032be9\n       0x00171a24: 90000009  ADRP x9, 0x171000\n  reference sequence at 0x00171a74 (ADD at 0x00171a80):\n       0x00171a54: 52a0fc02  .word 0x52a0fc02\n       0x00171a58: 2a1f03e1  .word 0x2a1f03e1\n       0x00171a5c: a90223e9  .word 0xa90223e9\n       0x00171a60: ad0007e0  .word 0xad0007e0\n       0x00171a64: 97ffe145  BL 0x169f78\n       0x00171a68: 910003e0  ADD x0, x31, #0x0\n       0x00171a6c: 94014575  BL 0x1c3040\n       0x00171a70: 340001e0  .word 0x340001e0\n    >> 0x00171a74: b0000853  ADRP x19, 0x27a000\n       0x00171a78: 2a0003e2  .word 0x2a0003e2\n       0x00171a7c: f0000880  ADRP x0, 0x284000\n    >> 0x00171a80: 9125e673  ADD x19, x19, #0x979\n       0x00171a84: 91054800  ADD x0, x0, #0x152\n       0x00171a88: aa1303e1  .word 0xaa1303e1\n       0x00171a8c: 97ffcf4b  BL 0x1657b8\n       0x00171a90: b0000900  ADRP x0, 0x292000\n       0x00171a94: 91286400  ADD x0, x0, #0xa19\n       0x00171a98: aa1303e1  .word 0xaa1303e1\n       0x00171a9c: 97ffcf47  BL 0x1657b8\n       0x00171aa0: d00032a8  ADRP x8, 0x7c7000\n  reference sequence at 0x00171ab0 (ADD at 0x00171ab8):\n       0x00171a90: b0000900  ADRP x0, 0x292000\n       0x00171a94: 91286400  ADD x0, x0, #0xa19\n       0x00171a98: aa1303e1  .word 0xaa1303e1\n       0x00171a9c: 97ffcf47  BL 0x1657b8\n       0x00171aa0: d00032a8  ADRP x8, 0x7c7000\n       0x00171aa4: 52800029  .word 0x52800029\n       0x00171aa8: b900a509  .word 0xb900a509\n       0x00171aac: b0000900  ADRP x0, 0x292000\n    >> 0x00171ab0: b0000841  ADRP x1, 0x27a000\n       0x00171ab4: 9128e800  ADD x0, x0, #0xa3a\n    >> 0x00171ab8: 9125e421  ADD x1, x1, #0x979\n       0x00171abc: 97ffcf3f  BL 0x1657b8\n       0x00171ac0: f94033f3  LDR x19, [x31, #0x60]\n       0x00171ac4: a9457bfd  .word 0xa9457bfd\n       0x00171ac8: 2a1f03e0  .word 0x2a1f03e0\n       0x00171acc: 9101c3ff  ADD x31, x31, #0x70\n       0x00171ad0: d65f03c0  .word 0xd65f03c0\n       0x00171ad4: d00032a8  ADRP x8, 0x7c7000\n       0x00171ad8: b940a508  LDR w8, [x8, #0xa4]\n\nSTRING compressed_download_init @ 0x002726ec\n  occurrences: 0x2726ec\n  direct ADRP+ADD references: 3\n  reference sequence at 0x00171bfc (ADD at 0x00171c04):\n       0x00171bdc: d101c3ff  .word 0xd101c3ff\n       0x00171be0: a9057bfd  .word 0xa9057bfd\n       0x00171be4: a9064ff4  .word 0xa9064ff4\n       0x00171be8: 910143fd  ADD x29, x31, #0x50\n       0x00171bec: d00032b4  ADRP x20, 0x7c7000\n       0x00171bf0: b940a688  LDR w8, [x20, #0xa4]\n       0x00171bf4: 35000708  .word 0x35000708\n       0x00171bf8: f0000940  ADRP x0, 0x29c000\n    >> 0x00171bfc: b0000801  ADRP x1, 0x272000\n       0x00171c00: 9124a800  ADD x0, x0, #0x92a\n    >> 0x00171c04: 911bb021  ADD x1, x1, #0x6ec\n       0x00171c08: 97ffceec  BL 0x1657b8\n       0x00171c0c: 90000009  ADRP x9, 0x171000\n       0x00171c10: 9000000a  ADRP x10, 0x171000\n       0x00171c14: 91247129  ADD x9, x9, #0x91c\n       0x00171c18: 9126b14a  ADD x10, x10, #0x9ac\n       0x00171c1c: 9000000b  ADRP x11, 0x171000\n       0x00171c20: a9032be9  .word 0xa9032be9\n       0x00171c24: 90000009  ADRP x9, 0x171000\n  reference sequence at 0x00171c8c (ADD at 0x00171c98):\n       0x00171c6c: d2b3c020  MOVZ w0, #0x9e01\n       0x00171c70: f2c00100  .word 0xf2c00100\n       0x00171c74: 52a0fc02  .word 0x52a0fc02\n       0x00171c78: 2a1f03e1  .word 0x2a1f03e1\n       0x00171c7c: 97ffe0bf  BL 0x169f78\n       0x00171c80: 910003e0  ADD x0, x31, #0x0\n       0x00171c84: 94014763  BL 0x1c3a10\n       0x00171c88: 340001c0  .word 0x340001c0\n    >> 0x00171c8c: b0000813  ADRP x19, 0x272000\n       0x00171c90: 2a0003e2  .word 0x2a0003e2\n       0x00171c94: f0000880  ADRP x0, 0x284000\n    >> 0x00171c98: 911bb273  ADD x19, x19, #0x6ec\n       0x00171c9c: 91054800  ADD x0, x0, #0x152\n       0x00171ca0: aa1303e1  .word 0xaa1303e1\n       0x00171ca4: 97ffcec5  BL 0x1657b8\n       0x00171ca8: b0000900  ADRP x0, 0x292000\n       0x00171cac: 91286400  ADD x0, x0, #0xa19\n       0x00171cb0: aa1303e1  .word 0xaa1303e1\n       0x00171cb4: 97ffcec1  BL 0x1657b8\n       0x00171cb8: 52800028  .word 0x52800028\n  reference sequence at 0x00171cc4 (ADD at 0x00171ccc):\n       0x00171ca4: 97ffcec5  BL 0x1657b8\n       0x00171ca8: b0000900  ADRP x0, 0x292000\n       0x00171cac: 91286400  ADD x0, x0, #0xa19\n       0x00171cb0: aa1303e1  .word 0xaa1303e1\n       0x00171cb4: 97ffcec1  BL 0x1657b8\n       0x00171cb8: 52800028  .word 0x52800028\n       0x00171cbc: b900a688  .word 0xb900a688\n       0x00171cc0: b0000900  ADRP x0, 0x292000\n    >> 0x00171cc4: b0000801  ADRP x1, 0x272000\n       0x00171cc8: 9128e800  ADD x0, x0, #0xa3a\n    >> 0x00171ccc: 911bb021  ADD x1, x1, #0x6ec\n       0x00171cd0: 97ffceba  BL 0x1657b8\n       0x00171cd4: a9464ff4  .word 0xa9464ff4\n       0x00171cd8: a9457bfd  .word 0xa9457bfd\n       0x00171cdc: 2a1f03e0  .word 0x2a1f03e0\n       0x00171ce0: 9101c3ff  ADD x31, x31, #0x70\n       0x00171ce4: d65f03c0  .word 0xd65f03c0\n       0x00171ce8: a9be7bfd  .word 0xa9be7bfd\n       0x00171cec: a9014ff4  .word 0xa9014ff4\n\nSTRING usb buffer alloc failed @ 0x00279c6f\n  occurrences: 0x279c6f\n  direct ADRP+ADD references: 0\n\nSTRING image is waiting to get BIG usb buffer @ 0x002956ce\n  occurrences: 0x2956ce\n  direct ADRP+ADD references: 0\n\nCautions:\n- A diagnostic string and its reference do not establish that the path is reachable from an external USB request.\n- The USB packet-size diagnostic has a direct code reference; the JPEG diagnostics mostly lack direct ADRP+ADD references in this scan. They may be referenced indirectly or through library error tables.\n- No conclusion about buffer overflow, copy bounds, or exploitability can be drawn from string references alone.\n- The callback immediate reported by the companion signature scan is an observed argument constant, not proven to be a copy length.\n
+SM-A536N S-BOOT USB/JPEG STATIC FLOW REPORT
+Read-only string cross-reference scan; no device interaction, loader build, flashing, or fuse changes.
+S-Boot size: 8388608 bytes; aligned AArch64 words scanned: 2097152
+Reference method: ADRP+ADD immediate pairs only. Indirect tables, literal loads, and computed pointers may be missed.
+
+STRING USB packet size is too big! @ 0x0028307d
+  occurrences: 0x28307d
+  direct ADRP+ADD references: 1
+  reference sequence at 0x001c1b40 (ADD at 0x001c1b44):
+       0x001c1b20: d61f0140  .word 0xd61f0140
+       0x001c1b24: b9801be1  .word 0xb9801be1
+       0x001c1b28: f0003173  ADRP x19, 0x7f0000
+       0x001c1b2c: 9136f273  ADD x19, x19, #0xdbc
+       0x001c1b30: d360fc28  .word 0xd360fc28
+       0x001c1b34: d3587c29  .word 0xd3587c29
+       0x001c1b38: 29002261  .word 0x29002261
+       0x001c1b3c: 34005f29  .word 0x34005f29
+    >> 0x001c1b40: d0000600  ADRP x0, 0x283000
+    >> 0x001c1b44: 9101f400  ADD x0, x0, #0x7d
+       0x001c1b48: 97fe8f1c  BL 0x1657b8
+       0x001c1b4c: f0003168  ADRP x8, 0x7f0000
+       0x001c1b50: f946f500  LDR x0, [x8, #0xde8]
+       0x001c1b54: b5004f20  .word 0xb5004f20
+       0x001c1b58: 90000700  ADRP x0, 0x2a1000
+       0x001c1b5c: 91207400  ADD x0, x0, #0x81d
+       0x001c1b60: 97fe8f16  BL 0x1657b8
+       0x001c1b64: 14000000  B 0x1c1b64
+
+STRING Buffer passed to JPEG library is too small @ 0x0026d4ab
+  occurrences: 0x26d4ab
+  direct ADRP+ADD references: 0
+
+STRING JPEG image is bigger than LCD @ 0x0027a7ce
+  occurrences: 0x27a7ce
+  direct ADRP+ADD references: 0
+
+STRING Not a JPEG file @ 0x00260d3e
+  occurrences: 0x260d3e
+  direct ADRP+ADD references: 0
+
+STRING JPEG Load Failed @ 0x0026c0fa
+  occurrences: 0x26c0fa
+  direct ADRP+ADD references: 0
+
+STRING Error Exit at JPEG!! @ 0x00279a42
+  occurrences: 0x279a42
+  direct ADRP+ADD references: 1
+  reference sequence at 0x00238cac (ADD at 0x00238cb0):
+       0x00238c8c: 910003fd  ADD x29, x31, #0x0
+       0x00238c90: f9400008  LDR x8, [x0, #0x0]
+       0x00238c94: aa0003f3  .word 0xaa0003f3
+       0x00238c98: f9400908  LDR x8, [x8, #0x10]
+       0x00238c9c: d63f0100  .word 0xd63f0100
+       0x00238ca0: aa1303e0  .word 0xaa1303e0
+       0x00238ca4: 97ffaf6d  BL 0x224a58
+       0x00238ca8: f9400bf3  LDR x19, [x31, #0x10]
+    >> 0x00238cac: b0000200  ADRP x0, 0x279000
+    >> 0x00238cb0: 91290800  ADD x0, x0, #0xa42
+       0x00238cb4: a8c27bfd  .word 0xa8c27bfd
+       0x00238cb8: 17fcb2c0  B 0x1657b8
+       0x00238cbc: a9be7bfd  .word 0xa9be7bfd
+       0x00238cc0: f9000bf3  .word 0xf9000bf3
+       0x00238cc4: 910003fd  ADD x29, x31, #0x0
+       0x00238cc8: f9400013  LDR x19, [x0, #0x0]
+       0x00238ccc: 37f80101  .word 0x37f80101
+       0x00238cd0: b9407e68  LDR w8, [x19, #0x7c]
+
+STRING get_usb_buffer @ 0x0028fed5
+  occurrences: 0x28fed5
+  direct ADRP+ADD references: 6
+  reference sequence at 0x000fa158 (ADD at 0x000fa160):
+       0x000fa138: f00033c9  ADRP x9, 0x775000
+       0x000fa13c: f9015933  .word 0xf9015933
+       0x000fa140: f94166d3  LDR x19, [x22, #0x2c8]
+       0x000fa144: 52800048  .word 0x52800048
+       0x000fa148: 14000142  B 0xfa650
+       0x000fa14c: f90162ff  .word 0xf90162ff
+       0x000fa150: 14000149  B 0xfa674
+       0x000fa154: f0000be0  ADRP x0, 0x279000
+    >> 0x000fa158: b0000ca1  ADRP x1, 0x28f000
+       0x000fa15c: 9131ac00  ADD x0, x0, #0xc6b
+    >> 0x000fa160: 913b5421  ADD x1, x1, #0xed5
+       0x000fa164: 9401ad95  BL 0x1657b8
+       0x000fa168: f90166df  .word 0xf90166df
+       0x000fa16c: b0000b60  ADRP x0, 0x267000
+       0x000fa170: f0000b21  ADRP x1, 0x261000
+       0x000fa174: 910a7400  ADD x0, x0, #0x29d
+       0x000fa178: 9102b421  ADD x1, x1, #0xad
+       0x000fa17c: 9401ad8f  BL 0x1657b8
+       0x000fa180: 14000000  B 0xfa180
+  reference sequence at 0x000fa220 (ADD at 0x000fa228):
+       0x000fa200: 7100655f  .word 0x7100655f
+       0x000fa204: 540005c8  B.cond cond=8
+       0x000fa208: d1015d29  .word 0xd1015d29
+       0x000fa20c: 1400002d  B 0xfa2c0
+       0x000fa210: b0000bc1  ADRP x1, 0x273000
+       0x000fa214: 912f9821  ADD x1, x1, #0xbe6
+       0x000fa218: 140001e5  B 0xfa9ac
+       0x000fa21c: f0000be0  ADRP x0, 0x279000
+    >> 0x000fa220: b0000ca1  ADRP x1, 0x28f000
+       0x000fa224: 9131ac00  ADD x0, x0, #0xc6b
+    >> 0x000fa228: 913b5421  ADD x1, x1, #0xed5
+       0x000fa22c: 9401ad63  BL 0x1657b8
+       0x000fa230: b0000b80  ADRP x0, 0x26b000
+       0x000fa234: f0000ca1  ADRP x1, 0x291000
+       0x000fa238: 9110c400  ADD x0, x0, #0x431
+       0x000fa23c: 913f6021  ADD x1, x1, #0xfd8
+       0x000fa240: 9401ad5e  BL 0x1657b8
+       0x000fa244: 14000000  B 0xfa244
+       0x000fa248: 52800402  .word 0x52800402
+  reference sequence at 0x000fa704 (ADD at 0x000fa70c):
+       0x000fa6e4: 94056db1  BL 0x255da8
+       0x000fa6e8: 34fffb00  .word 0x34fffb00
+       0x000fa6ec: f0000c40  ADRP x0, 0x285000
+       0x000fa6f0: 91169400  ADD x0, x0, #0x5a5
+       0x000fa6f4: 9401ac31  BL 0x1657b8
+       0x000fa6f8: f90162ff  .word 0xf90162ff
+       0x000fa6fc: 17ffffde  B 0xfa674
+       0x000fa700: f0000be0  ADRP x0, 0x279000
+    >> 0x000fa704: b0000ca1  ADRP x1, 0x28f000
+       0x000fa708: 9131ac00  ADD x0, x0, #0xc6b
+    >> 0x000fa70c: 913b5421  ADD x1, x1, #0xed5
+       0x000fa710: 9401ac2a  BL 0x1657b8
+       0x000fa714: b0000b80  ADRP x0, 0x26b000
+       0x000fa718: f0000ca1  ADRP x1, 0x291000
+       0x000fa71c: 9110c400  ADD x0, x0, #0x431
+       0x000fa720: 913f6021  ADD x1, x1, #0xfd8
+       0x000fa724: 9401ac25  BL 0x1657b8
+       0x000fa728: 14000000  B 0xfa728
+       0x000fa72c: b27e7bea  .word 0xb27e7bea
+  reference sequence at 0x000fa76c (ADD at 0x000fa774):
+       0x000fa74c: 9131a021  ADD x1, x1, #0xc68
+       0x000fa750: 14000097  B 0xfa9ac
+       0x000fa754: 52800028  .word 0x52800028
+       0x000fa758: f0000f33  ADRP x19, 0x2e1000
+       0x000fa75c: b901f6c8  .word 0xb901f6c8
+       0x000fa760: 9103aa73  ADD x19, x19, #0xea
+       0x000fa764: 17fffaa6  B 0xf91fc
+       0x000fa768: f0000be0  ADRP x0, 0x279000
+    >> 0x000fa76c: b0000ca1  ADRP x1, 0x28f000
+       0x000fa770: 9131ac00  ADD x0, x0, #0xc6b
+    >> 0x000fa774: 913b5421  ADD x1, x1, #0xed5
+       0x000fa778: 9401ac10  BL 0x1657b8
+       0x000fa77c: b0000b80  ADRP x0, 0x26b000
+       0x000fa780: f0000ca1  ADRP x1, 0x291000
+       0x000fa784: 9110c400  ADD x0, x0, #0x431
+       0x000fa788: 913f6021  ADD x1, x1, #0xfd8
+       0x000fa78c: 9401ac0b  BL 0x1657b8
+       0x000fa790: 14000000  B 0xfa790
+       0x000fa794: f0000f33  ADRP x19, 0x2e1000
+  reference sequence at 0x000fa83c (ADD at 0x000fa844):
+       0x000fa81c: 5280002c  .word 0x5280002c
+       0x000fa820: d1000508  .word 0xd1000508
+       0x000fa824: a9012d48  .word 0xa9012d48
+       0x000fa828: f900054b  .word 0xf900054b
+       0x000fa82c: 29003149  .word 0x29003149
+       0x000fa830: f94166d3  LDR x19, [x22, #0x2c8]
+       0x000fa834: 17ffff88  B 0xfa654
+       0x000fa838: f0000be0  ADRP x0, 0x279000
+    >> 0x000fa83c: b0000ca1  ADRP x1, 0x28f000
+       0x000fa840: 9131ac00  ADD x0, x0, #0xc6b
+    >> 0x000fa844: 913b5421  ADD x1, x1, #0xed5
+       0x000fa848: 9401abdc  BL 0x1657b8
+       0x000fa84c: aa1f03f5  .word 0xaa1f03f5
+       0x000fa850: 94027c8c  BL 0x199a80
+       0x000fa854: 34ffcb20  .word 0x34ffcb20
+       0x000fa858: 94027c98  BL 0x199ab8
+       0x000fa85c: b4fff0c0  .word 0xb4fff0c0
+       0x000fa860: aa0003f6  .word 0xaa0003f6
+       0x000fa864: aa1503e0  .word 0xaa1503e0
+  reference sequence at 0x000faab0 (ADD at 0x000faab8):
+       0x000faa90: f9400d09  LDR x9, [x8, #0x18]
+       0x000faa94: 8b130129  .word 0x8b130129
+       0x000faa98: a901fd09  .word 0xa901fd09
+       0x000faa9c: f9415a88  LDR x8, [x20, #0x2b0]
+       0x000faaa0: 8b130108  .word 0x8b130108
+       0x000faaa4: f9015a88  .word 0xf9015a88
+       0x000faaa8: 17fffef3  B 0xfa674
+       0x000faaac: f0000be0  ADRP x0, 0x279000
+    >> 0x000faab0: b0000ca1  ADRP x1, 0x28f000
+       0x000faab4: 9131ac00  ADD x0, x0, #0xc6b
+    >> 0x000faab8: 913b5421  ADD x1, x1, #0xed5
+       0x000faabc: 9401ab3f  BL 0x1657b8
+       0x000faac0: b0000b80  ADRP x0, 0x26b000
+       0x000faac4: f0000ca1  ADRP x1, 0x291000
+       0x000faac8: 9110c400  ADD x0, x0, #0x431
+       0x000faacc: 913f6021  ADD x1, x1, #0xfd8
+       0x000faad0: 9401ab3a  BL 0x1657b8
+       0x000faad4: 14000000  B 0xfaad4
+       0x000faad8: a9bf7bfd  .word 0xa9bf7bfd
+
+STRING do_download @ 0x0029676a
+  occurrences: 0x29676a
+  direct ADRP+ADD references: 1
+  reference sequence at 0x00170994 (ADD at 0x0017099c):
+       0x00170974: 54ffffc1  B.cond cond=1
+       0x00170978: 528000a0  MOVZ w0, #0x5
+       0x0017097c: 940063c1  BL 0x189880
+       0x00170980: 9400662c  BL 0x18a230
+       0x00170984: 378801c0  .word 0x378801c0
+       0x00170988: 9400662a  BL 0x18a230
+       0x0017098c: 2a0003e2  .word 0x2a0003e2
+       0x00170990: f00008c0  ADRP x0, 0x28b000
+    >> 0x00170994: d0000921  ADRP x1, 0x296000
+       0x00170998: 91389c00  ADD x0, x0, #0xe27
+    >> 0x0017099c: 911da821  ADD x1, x1, #0x76a
+       0x001709a0: 97ffd386  BL 0x1657b8
+       0x001709a4: a9474ff4  .word 0xa9474ff4
+       0x001709a8: a94657f6  .word 0xa94657f6
+       0x001709ac: a9457bfd  .word 0xa9457bfd
+       0x001709b0: 12800000  .word 0x12800000
+       0x001709b4: 910203ff  ADD x31, x31, #0x80
+       0x001709b8: d65f03c0  .word 0xd65f03c0
+       0x001709bc: 71001a7f  .word 0x71001a7f
+
+STRING parallel_download_init @ 0x0027a979
+  occurrences: 0x27a979
+  direct ADRP+ADD references: 3
+  reference sequence at 0x001719fc (ADD at 0x00171a04):
+       0x001719dc: f9400bf3  LDR x19, [x31, #0x10]
+       0x001719e0: a8c27bfd  .word 0xa8c27bfd
+       0x001719e4: d65f03c0  .word 0xd65f03c0
+       0x001719e8: d101c3ff  .word 0xd101c3ff
+       0x001719ec: a9057bfd  .word 0xa9057bfd
+       0x001719f0: f90033f3  .word 0xf90033f3
+       0x001719f4: 910143fd  ADD x29, x31, #0x50
+       0x001719f8: f0000940  ADRP x0, 0x29c000
+    >> 0x001719fc: b0000841  ADRP x1, 0x27a000
+       0x00171a00: 9124a800  ADD x0, x0, #0x92a
+    >> 0x00171a04: 9125e421  ADD x1, x1, #0x979
+       0x00171a08: 97ffcf6c  BL 0x1657b8
+       0x00171a0c: 90000009  ADRP x9, 0x171000
+       0x00171a10: 9000000a  ADRP x10, 0x171000
+       0x00171a14: 91232129  ADD x9, x9, #0x8c8
+       0x00171a18: 9125c14a  ADD x10, x10, #0x970
+       0x00171a1c: 9000000b  ADRP x11, 0x171000
+       0x00171a20: a9032be9  .word 0xa9032be9
+       0x00171a24: 90000009  ADRP x9, 0x171000
+  reference sequence at 0x00171a74 (ADD at 0x00171a80):
+       0x00171a54: 52a0fc02  .word 0x52a0fc02
+       0x00171a58: 2a1f03e1  .word 0x2a1f03e1
+       0x00171a5c: a90223e9  .word 0xa90223e9
+       0x00171a60: ad0007e0  .word 0xad0007e0
+       0x00171a64: 97ffe145  BL 0x169f78
+       0x00171a68: 910003e0  ADD x0, x31, #0x0
+       0x00171a6c: 94014575  BL 0x1c3040
+       0x00171a70: 340001e0  .word 0x340001e0
+    >> 0x00171a74: b0000853  ADRP x19, 0x27a000
+       0x00171a78: 2a0003e2  .word 0x2a0003e2
+       0x00171a7c: f0000880  ADRP x0, 0x284000
+    >> 0x00171a80: 9125e673  ADD x19, x19, #0x979
+       0x00171a84: 91054800  ADD x0, x0, #0x152
+       0x00171a88: aa1303e1  .word 0xaa1303e1
+       0x00171a8c: 97ffcf4b  BL 0x1657b8
+       0x00171a90: b0000900  ADRP x0, 0x292000
+       0x00171a94: 91286400  ADD x0, x0, #0xa19
+       0x00171a98: aa1303e1  .word 0xaa1303e1
+       0x00171a9c: 97ffcf47  BL 0x1657b8
+       0x00171aa0: d00032a8  ADRP x8, 0x7c7000
+  reference sequence at 0x00171ab0 (ADD at 0x00171ab8):
+       0x00171a90: b0000900  ADRP x0, 0x292000
+       0x00171a94: 91286400  ADD x0, x0, #0xa19
+       0x00171a98: aa1303e1  .word 0xaa1303e1
+       0x00171a9c: 97ffcf47  BL 0x1657b8
+       0x00171aa0: d00032a8  ADRP x8, 0x7c7000
+       0x00171aa4: 52800029  .word 0x52800029
+       0x00171aa8: b900a509  .word 0xb900a509
+       0x00171aac: b0000900  ADRP x0, 0x292000
+    >> 0x00171ab0: b0000841  ADRP x1, 0x27a000
+       0x00171ab4: 9128e800  ADD x0, x0, #0xa3a
+    >> 0x00171ab8: 9125e421  ADD x1, x1, #0x979
+       0x00171abc: 97ffcf3f  BL 0x1657b8
+       0x00171ac0: f94033f3  LDR x19, [x31, #0x60]
+       0x00171ac4: a9457bfd  .word 0xa9457bfd
+       0x00171ac8: 2a1f03e0  .word 0x2a1f03e0
+       0x00171acc: 9101c3ff  ADD x31, x31, #0x70
+       0x00171ad0: d65f03c0  .word 0xd65f03c0
+       0x00171ad4: d00032a8  ADRP x8, 0x7c7000
+       0x00171ad8: b940a508  LDR w8, [x8, #0xa4]
+
+STRING compressed_download_init @ 0x002726ec
+  occurrences: 0x2726ec
+  direct ADRP+ADD references: 3
+  reference sequence at 0x00171bfc (ADD at 0x00171c04):
+       0x00171bdc: d101c3ff  .word 0xd101c3ff
+       0x00171be0: a9057bfd  .word 0xa9057bfd
+       0x00171be4: a9064ff4  .word 0xa9064ff4
+       0x00171be8: 910143fd  ADD x29, x31, #0x50
+       0x00171bec: d00032b4  ADRP x20, 0x7c7000
+       0x00171bf0: b940a688  LDR w8, [x20, #0xa4]
+       0x00171bf4: 35000708  .word 0x35000708
+       0x00171bf8: f0000940  ADRP x0, 0x29c000
+    >> 0x00171bfc: b0000801  ADRP x1, 0x272000
+       0x00171c00: 9124a800  ADD x0, x0, #0x92a
+    >> 0x00171c04: 911bb021  ADD x1, x1, #0x6ec
+       0x00171c08: 97ffceec  BL 0x1657b8
+       0x00171c0c: 90000009  ADRP x9, 0x171000
+       0x00171c10: 9000000a  ADRP x10, 0x171000
+       0x00171c14: 91247129  ADD x9, x9, #0x91c
+       0x00171c18: 9126b14a  ADD x10, x10, #0x9ac
+       0x00171c1c: 9000000b  ADRP x11, 0x171000
+       0x00171c20: a9032be9  .word 0xa9032be9
+       0x00171c24: 90000009  ADRP x9, 0x171000
+  reference sequence at 0x00171c8c (ADD at 0x00171c98):
+       0x00171c6c: d2b3c020  MOVZ w0, #0x9e01
+       0x00171c70: f2c00100  .word 0xf2c00100
+       0x00171c74: 52a0fc02  .word 0x52a0fc02
+       0x00171c78: 2a1f03e1  .word 0x2a1f03e1
+       0x00171c7c: 97ffe0bf  BL 0x169f78
+       0x00171c80: 910003e0  ADD x0, x31, #0x0
+       0x00171c84: 94014763  BL 0x1c3a10
+       0x00171c88: 340001c0  .word 0x340001c0
+    >> 0x00171c8c: b0000813  ADRP x19, 0x272000
+       0x00171c90: 2a0003e2  .word 0x2a0003e2
+       0x00171c94: f0000880  ADRP x0, 0x284000
+    >> 0x00171c98: 911bb273  ADD x19, x19, #0x6ec
+       0x00171c9c: 91054800  ADD x0, x0, #0x152
+       0x00171ca0: aa1303e1  .word 0xaa1303e1
+       0x00171ca4: 97ffcec5  BL 0x1657b8
+       0x00171ca8: b0000900  ADRP x0, 0x292000
+       0x00171cac: 91286400  ADD x0, x0, #0xa19
+       0x00171cb0: aa1303e1  .word 0xaa1303e1
+       0x00171cb4: 97ffcec1  BL 0x1657b8
+       0x00171cb8: 52800028  .word 0x52800028
+  reference sequence at 0x00171cc4 (ADD at 0x00171ccc):
+       0x00171ca4: 97ffcec5  BL 0x1657b8
+       0x00171ca8: b0000900  ADRP x0, 0x292000
+       0x00171cac: 91286400  ADD x0, x0, #0xa19
+       0x00171cb0: aa1303e1  .word 0xaa1303e1
+       0x00171cb4: 97ffcec1  BL 0x1657b8
+       0x00171cb8: 52800028  .word 0x52800028
+       0x00171cbc: b900a688  .word 0xb900a688
+       0x00171cc0: b0000900  ADRP x0, 0x292000
+    >> 0x00171cc4: b0000801  ADRP x1, 0x272000
+       0x00171cc8: 9128e800  ADD x0, x0, #0xa3a
+    >> 0x00171ccc: 911bb021  ADD x1, x1, #0x6ec
+       0x00171cd0: 97ffceba  BL 0x1657b8
+       0x00171cd4: a9464ff4  .word 0xa9464ff4
+       0x00171cd8: a9457bfd  .word 0xa9457bfd
+       0x00171cdc: 2a1f03e0  .word 0x2a1f03e0
+       0x00171ce0: 9101c3ff  ADD x31, x31, #0x70
+       0x00171ce4: d65f03c0  .word 0xd65f03c0
+       0x00171ce8: a9be7bfd  .word 0xa9be7bfd
+       0x00171cec: a9014ff4  .word 0xa9014ff4
+
+STRING usb buffer alloc failed @ 0x00279c6f
+  occurrences: 0x279c6f
+  direct ADRP+ADD references: 0
+
+STRING image is waiting to get BIG usb buffer @ 0x002956ce
+  occurrences: 0x2956ce
+  direct ADRP+ADD references: 0
+
+Cautions:
+- A diagnostic string and its reference do not establish that the path is reachable from an external USB request.
+- The USB packet-size diagnostic has a direct code reference; the JPEG diagnostics mostly lack direct ADRP+ADD references in this scan. They may be referenced indirectly or through library error tables.
+- No conclusion about buffer overflow, copy bounds, or exploitability can be drawn from string references alone.
+- The callback immediate reported by the companion signature scan is an observed argument constant, not proven to be a copy length.

@@ -1,0 +1,24 @@
+SM-A536N S-BOOT USB PACKET-SIZE GUARD
+Read-only instruction-pattern validation; no device access or firmware modification.
+Binary size: 8388608 bytes
+Sequence offset: 0x001c1b24
+Exact instruction sequence match: yes
+
+0x001c1b24: 0xb9801be1  LDRSW X1, [SP,#0x18]
+0x001c1b28: 0xf0003173  ADRP X19, global state
+0x001c1b2c: 0x9136f273  ADD X19, X19, #0xdbc
+0x001c1b30: 0xd360fc28  LSR X8, X1, #32
+0x001c1b34: 0xd3587c29  UBFX W9, W1, #24, #8
+0x001c1b38: 0x29002261  STP W1, W8, [X19]
+0x001c1b3c: 0x34005f29  CBZ W9, accepted path
+0x001c1b40: 0xd0000600  ADRP X0, USB packet-size diagnostic
+0x001c1b44: 0x9101f400  ADD X0, X0, #0x7d
+0x001c1b48: 0x97fe8f1c  BL logger
+
+Static interpretation:
+- A 32-bit value is loaded from the stack slot at SP+0x18 with sign extension.
+- Bits 24..31 of its low 32-bit value are extracted into W9.
+- If W9 is zero, control branches to the accepted path; otherwise the USB packet-size diagnostic is logged.
+- This is consistent with a guard rejecting values whose upper byte is nonzero (including negative signed values).
+- This does NOT establish the maximum safe allocation, per-transfer bounds, destination buffer capacity, or the absence/presence of a separate copy overflow.
+- The field's full semantic role should be confirmed by tracing the caller and downstream consumers.
