@@ -130,7 +130,7 @@ def send_info_signature(data, base, bss):
         "setter_pair_spacing_8_bytes":callback_slot==reply_slot+8,
         "registration_call_count":len(registrations),
         "callback_dispatch_count":len(uses),
-        "callback_length_immediates":sorted(callback_lengths),
+        "callback_arg1_immediates":sorted(callback_lengths),
         "reply_pointer_candidate_count":len(reply_candidates),
         "reply_pointer_inside_bss":len(reply_candidates)==1,
         "reply_callback_distance_within_4k":len(reply_candidates)==1 and 0<callback_slot-reply_candidates[0]<=PAGE,
