@@ -1,0 +1,45 @@
+name: SM-A536N BL read-only static inventory
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  inventory:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out this analysis branch
+        uses: actions/checkout@v4
+        with:
+          ref: analysis/sm-a536n-bl-static
+
+      - name: Install LZ4 decoder
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y lz4
+
+      - name: Run read-only inventory
+        run: python3 tools/a536n_bl_static_inventory.py
+
+      - name: Upload report artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: A536N-BL-static-report
+          path: A536N_BL_STATIC_REPORT.txt
+          if-no-files-found: error
+          retention-days: 14
+
+      - name: Commit report to analysis branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add A536N_BL_STATIC_REPORT.txt
+          if ! git diff --cached --quiet; then
+            git commit -m "Add SM-A536N BL static inventory report"
+            git push origin HEAD:analysis/sm-a536n-bl-static
+          else
+            echo "Report unchanged; no commit needed."
+          fi
