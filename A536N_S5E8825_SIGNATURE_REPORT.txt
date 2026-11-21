@@ -1,0 +1,24 @@
+SM-A536N / S5E8825 STATIC SIGNATURE COMPARISON
+Read-only analysis of the LK slice; no loader build, device access, flash, or fuse operation.
+S-Boot image bytes: 8388608
+LK slice: 0xed000..0x4ed000 (4194304 bytes)
+LK image base resolved: yes
+LK BSS range resolved: yes
+bss_map: resolved
+setter_pattern_count: 1
+setter_pair_spacing_8_bytes: True
+registration_call_count: 1
+callback_dispatch_count: 0
+reply_pointer_candidate_count: 0
+reply_pointer_inside_bss: False
+reply_callback_distance_within_4k: False
+direct xrefs to parallel_download_init: 3
+direct xrefs to compressed_download_init: 3
+direct xrefs to em_crypto_sha256: 3
+direct xrefs to blk_bread: 3
+direct xrefs to blk_bwrite: 3
+
+Interpretation:
+- A complete setter/callback/reply-buffer signature match would support structural compatibility with the public S5E8825 resolver.
+- This is not a proof of an exploitable out-of-bounds copy: copy length, destination capacity, runtime initialization, and November 2026 patch changes require separate verification.
+- No exploit payload is generated and no device state is changed.
